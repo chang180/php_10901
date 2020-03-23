@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- 宣告使HTML5技術所寫的網頁 -->
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的第一個網頁，這才是主網頁</title>
+</head>
+
+<body>
+    <!-- HTML5很講究語意(很顯然的對Dreamweaver之類的自動產生網頁軟體有恨意) -->
+<!-- 文字效果 -->
+<b title="這是一個測試，滑鼠移上來時就會看到這行">Bold</b>
+<br>
+<strong>Bold 強調的語意</strong>
+<br>
+<mark>標記的文字</mark>
+<br>
+<i>斜體的文字</i>
+<br>
+<em>斜體的效果，強調語意</em>
+<br>
+<u>底線</u>
+<ins>也是底線</ins>
+<br>
+<sup>上標</sup>
+<sub>下標</sub>
+<br>
+<small>小字</small>
+<br>
+<big>大字，快被淘汰了，大就臭了嗎？</big>
+<br>
+<q>引句-國父孫中山說：革命尚未成功，同志仍需努力！</q>
+<br>
+<blockquote>引句-國父孫中山說：革命尚未成功，同志仍需努力！(向右靠了一點)</blockquote>
+<br>
+<!-- 字符實體化 符號實體化-->
+<pre><code>
+    &lthtml&gt&lthead&gt&lt/head&gt
+    &ltbody&gt
+        &ltp&gtHello World!&lt/p&gt
+    &lt/body&gt
+    &lt/html&gt
+&lt?php
+echo 'Hello World!';
+?&gt
+</code></pre>
+<hr>
+<!-- media -->
+<img src="imgs/customIMG.jpg" alt="當圖片失效時就會看到這行" title="當滑鼠移過時就會看到這行">
+<br>
+<video src="" width="300" controls loop autoplay></video>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I916b5BARTE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7078780838615!2d121.41715431537897!3d25.0439858440442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1584508310813!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<br>
+
+
+
+
+<!-- 清單項目 -->
+<!-- ol>li*3{$$$$$$} -->
+<ol>
+    <li>000001</li>
+    <!-- 可以在項目中繼續往下加 -->
+<!-- ol>li*6{$$$} -->
+<ol>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+    <li>006</li>
+</ol>
+    <li>000002</li>
+    <li>000003</li>
+</ol>
+<!-- ul>li*4{$$$$$$} -->
+<ul> 
+    <li>00001</li>
+    <li>00002</li>
+    <li>00003</li>
+    <li>00004</li>
+</ul>
+    <!--標題 Header-->
+    <h1>我是一個標題</h1>
+    <h2>我是第二個標題</h2>
+    <h3>我是第三個標題</h3>
+    <h4>我是第四個標題</h4>
+    <h5 id = "abc">我是第五個標題</h5>
+    <h6>我是第六個標題</h6>
+
+    <hr>
+
+    <!--  段落 -->
+    <p><h1>這是我的第一天上課，有很多的東西要學，即使再怎麼厲害，我相信也會有進度有些跟不上的情形，但是這些都還只是基礎課程而已，所以無論如何還是要能跟上進度，如果有看不懂的東西或地方，就先記下來，等晚些有空的時候就去問，千萬不要悶在心裏，不然不會的東西越累積越多，很快就爆炸了。
+    </h1></p>
+    <hr>
+    <!-- 跑馬燈 -->
+<marquee>這是我的第一天上課，有很多的東西要學，即使再怎麼厲害，我相信也會有進度有些跟不上的情形，但是這些都還只是基礎課程而已，所以無論如何還是要能跟上進度，如果有看不懂的東西或地方，就先記下來，等晚些有空的時候就去問，千萬不要悶在心裏，不然不會的東西越累積越多，很快就爆炸了。</marquee>
+<!-- 超連結 -->
+<a href="http://google.com" target="_blank">Google網站</a>
+<a href="index.html" target="_blank">我的第一個網站</a>
+
+<!-- 錨點鏈結 -->
+<a href="#abc">前往abc</a>
+
+
+
+    <p>這就是abc，<br>沒有什麼特別的，<br>不過我有使用跳行的標記，所以看起來會有三行。
+    </p>
+    
+    <!-- block 區塊元素 -->
+<h1>1我是H1標籤</h1>
+<h1>2我是H1標籤</h1>
+<h1>3我是H1標籤</h1>
+<h1>4我是H1標籤</h1>
+
+
+    <!-- inline 行內元素-->
+    <a href="#">連結1</a>
+    <a href="#">連結2</a>
+    <a href="#">連結3</a>
+    <a href="#">連結4</a>
+
+    <!-- example -->
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nesciunt accusantium fugiat, <strong>我是強烈文字</strong> soluta itaque ullam nobis magni voluptas sequi laudantium quam eius laboriosam tempora consequatur architecto nisi amet doloremque.</p>
+<hr>
+<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nesciunt accusantium fugiat, <strong>我是強烈文字</strong> soluta itaque ullam nobis magni voluptas sequi laudantium quam eius laboriosam tempora consequatur architecto nisi amet doloremque.</div>
+<hr>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam quia porro ipsum soluta, recusandae ad velit excepturi aliquam maxime iste iure eum asperiores qui animi a molestias nobis nihil ea.
+Quibusdam explicabo adipisci quia, qui ea mollitia, ab omnis molestias impedit aliquid itaque laudantium nostrum sit consequatur? Temporibus ipsum alias eveniet, deserunt ut cupiditate nemo delectus, facilis, architecto aperiam saepe.
+Reiciendis, unde iure suscipit ut vero quae repellat atque? Sint sed, perspiciatis, a obcaecati perferendis doloremque tenetur ut facere, magnam iusto illo? Ex aliquam quod, ad impedit ducimus sunt aut.
+Qui suscipit provident quidem! Labore, inventore voluptate soluta amet qui neque placeat, rem ipsum, iste velit modi nam corporis maxime voluptatibus illum molestias aliquam impedit perferendis beatae libero minima nisi!
+Laudantium temporibus ratione voluptatum. Ut quidem, eos sunt est eius iste veritatis non deserunt ab officia magni doloribus suscipit inventore soluta dolorem distinctio excepturi veniam aspernatur aut! Maxime, deleniti tempora.
+</p>
+<img src="imgs/bootstrap.png">
+<img src="imgs/bootstrap.png">
+</body>
+</html>

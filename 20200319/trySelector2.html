@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector 偽類別 vs 偽元素</title>
+    <!-- 只有在某些狀態下才成立 -->
+</head>
+<style>
+    /* 如果對a個別設定偽類別，建議順序為lvha */
+    a{
+        text-decoration: none;
+    }
+    a:link{
+        color:red;
+    }
+    a:visited{
+        color: green;
+    }
+    a:hover{
+        color:blue;
+    }
+    a:active{
+        color:purple;
+    }
+
+    h1:not(.odd){
+        color:green;
+    }
+    body :not(a){
+        font-size: 40px;
+    }
+    /* body a{
+        font-size: 20px;
+    } */
+    table{
+        widows: 100%;
+        border:1px solid #000;
+
+    }
+    tr>.odd{
+        background: gray;
+    }
+    tr:nth-of-type(odd){
+        background-color:#ccc;
+    }
+    /* 偽選擇器，專用於偽類別，具有一定程度的實用價值 */
+</style>
+    
+<body>
+    <a href="http://www.google.com">Google</a>
+    <a href="http://www.kimo.com">Yahoo</a>
+    <a href="http://www.momo.com">MOMO購物</a>
+    <a href="http://www.mobile01.com">Mobile01</a>
+    <a href="http://www.msn.com">MSN</a>
+    <br>
+    <h1 class="odd">Lorem ipsum dolor sit amet.</h1>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h1 class="odd">Lorem ipsum dolor sit amet.</h1>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h1 class="odd">Lorem ipsum dolor sit amet.</h1>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+<table>
+    <tr>
+        <td>001</td>
+    </tr>
+    <tr>
+        <td>002</td>
+    </tr>
+    <tr>
+        <td>003</td>
+    </tr>
+    <tr>
+        <td>004</td>
+    </tr>
+    <tr>
+        <td>005</td>
+    </tr>
+    <tr>
+        <td>006</td>
+    </tr>
+</table>
+</body>
+</html>

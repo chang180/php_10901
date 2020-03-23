@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偽元素</title>
+    <!-- 便於製作文字框的效果，而無須在CSS中再增加多餘的控制 -->
+
+    <style>
+        div, span{
+            font-size: 30px;
+            background:green;
+            width: 150px;
+            height: 500x;
+        }
+        div::before{
+            content: "Q_Q";
+            background: ivory;
+            
+        }
+        div::after{
+            content: "T_T";
+            background: blue;
+            
+        }
+        div::before, div::after{
+            display:block;
+            width:50px;
+            height:50px
+        }
+    </style>
+</head>
+<body>
+    <div>Lorem ipsum dolor sit amet.</div>
+    <span>Lorem ipsum dolor, sit amet consectetur adipisicing.</span>
+</body>
+</html>

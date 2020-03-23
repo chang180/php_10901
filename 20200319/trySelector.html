@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS選擇器</title>
+    <style>
+        h1 {
+            color: green;
+        }
+
+        .clrpink {
+            color:pink;
+        }
+/* 一組id只能用一次 */
+        #brown{
+            color: yellow;
+            background: #000;
+        }
+        .big{
+            font-size: 32px;
+        }
+        .small{
+            font-size: 16px;
+        }
+        #brown, .clrpink{
+            background-color:gray;
+        }
+        h2{
+            font: bolder;
+        }
+        .blue{
+            color:blue;
+        }
+        div p{
+            color: aqua;
+        }
+        /* div>p{
+            color:gold;
+        >符號及空格都用來表示子類別，但仍有先後順序，>較強烈，使用時不必強記，直接試即可
+        } */
+    </style>
+</head>
+
+<body>
+    <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam sunt, exercitationem deserunt id nemo aut repellat quo? Perspiciatis, consequatur officia.</div>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h1 class="clrpink">Lorem ipsum dolor sit amet.</h1>
+    <h1 class="big clrpink">Lorem ipsum dolor sit amet.</h1>
+    <h1 class="small">Lorem ipsum dolor sit amet.</h1>
+    <h1 id="brown">Lorem ipsum dolor sit amet.</h1>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h1 class="blue">Lorem ipsum dolor sit amet.</h1>
+    <h2 class="blue">Lorem ipsum dolor sit amet.</h2>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <p>工廠是因為夢幻，調。</p>
+<div>Lorem ipsum dolor sit amet consectetur.
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div>
+        <p>自身引導，既然臺灣人接近評論硬盤一體東。
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet.
+                </p>
+            </div>
+        </p>
+    </div>
+</div>
+</body>
+
+</html>
