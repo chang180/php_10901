@@ -11,7 +11,7 @@
 
 <?php
 // 選擇結構→判斷及格學生，判斷成績等級
-$grade =80;
+$grade =95;
 
 echo "成績：".$grade."<br>";
 if($grade>=60) echo "及格"."<br>";
@@ -22,16 +22,16 @@ echo "<hr>";
 switch ($grade)
 {
     case $grade<60 && $grade >=0:
-        echo "等級：D"."<br>"."用心不足，請加強"."<br>";
+        echo "等級：D<br>用心不足，請加強<br>";
     break;
     case $grade>=60 && $grade <75:
-        echo "等級：C"."<br>"."一般水平，需要更多的努力"."<br>";
+        echo "等級：C<br>一般水平，需要更多的努力<br>";
     break;
     case $grade >=75 && $grade <90:
-        echo "等級：B"."<br>"."可圈可點，但還有進步的空間"."<br>";
+        echo "等級：B<br>可圈可點，但還有進步的空間<br>";
     break;
     case $grade >=90 && $grade <=100:
-        echo "等級：A"."<br>"."非常好，請努力保持"."<br>";
+        echo "等級：A<br>非常好，請努力保持<br>";
     break;
     // case $grade ==100:
     //     echo "A:題目裏有陷阱，你肯定有作弊吧？"."<br>";
@@ -41,7 +41,7 @@ switch ($grade)
 }
 
 //三元運算子 ternary operator
-echo "<hr>"."三元運算子：";
+echo "<hr>三元運算子：";
 echo ($grade>=60)?"及格":"不及格";
 echo "<br";
 
