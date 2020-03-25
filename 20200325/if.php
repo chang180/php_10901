@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1> 
+
+
 <?php
 // 選擇結構→判斷及格學生，判斷成績等級
-$grade =100;
+$grade =99;
 
 echo "成績：".$grade."<br>";
 if($grade>=60) echo "及格"."<br>";
@@ -35,3 +46,6 @@ else if ($grade >=75) echo "判定為 B"."<br>";
 else if ($grade >=60) echo "判定為 C"."<br>";
 else echo "判定為 D"."<br>";
 ?>
+</h1>  
+</body>
+</html>
