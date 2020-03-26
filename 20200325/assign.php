@@ -6,27 +6,30 @@
     <title>練習</title>
 </head>
 <style>
-        * {
-            align = "center" ;
-        }
+table{
+    border: 1px solid #999;
+    padding:10px;
+}
+table td{
+    padding:5px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+table tr:nth-child(1), td:nth-child(1){
+    background: #bbb;
+}
+
 </style>
 <body>
     <h1>
 <?php
-<<<<<<< HEAD
-echo "<table border=1>";
-echo "<td>".""."</td>";
-    for($i=1;$i<=9;$i++){
-        echo "<td>".$i."</td>";  
-=======
 echo "<table border=1 align='center' height='750px' width='750px'>";
-echo '<td style="background:grey">'.""."</td>";
+echo '<td>'."&nbsp"."</td>";
     for($i=1;$i<=9;$i++){
-        echo '<td style="background:grey">'.$i.'</td>';  
->>>>>>> ba81c8c8b7fca187d52ad8bee3cabd90bda09259
+        echo '<td>'.$i.'</td>';  
     }
     for($i=1;$i<=9;$i++){
-        echo '<tr><td style="background:grey">'.$i."</td>";
+        echo '<tr><td>'.$i."</td>";
         for($j=1;$j<=9;$j++){
             echo "<td>".$i*$j."</td>";
         }
