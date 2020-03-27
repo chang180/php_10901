@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漸層</title>
+    <style>
+        body {
+            background: #333;
+            /* text-align: left; */
+        }
+
+        div.demo1 {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            /* background: linear-gradient(red,green); */
+            /* background: linear-gradient(45deg,red,green); */
+            /* 須注意把to拿掉就沒效果 */
+            background: linear-gradient(to right, red, green);
+            /* background: linear-gradient(to top right, red, green); */
+            /* background: linear-gradient(45deg,red 0%,green 20%,blue 50%); */
+            /* background: rgb(2, 0, 36); */
+            /* background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(88, 170, 96, 1) 39%, rgba(0, 212, 255, 1) 30%),url("https://picsum.photos/200/100/?random=1"); */
+        }
+
+        div.demo2 {
+            width: 400px;
+            height: 400px;
+            /* background: linear-gradient(to top right, red, transparent); */
+            /* background: radial-gradient(ellipse at left bottom,red, blue); */
+            background-image: 
+            linear-gradient(to left bottom,purple, transparent 30%),
+            radial-gradient(circle at left bottom,red, transparent 80%),
+            radial-gradient(circle at right bottom,green, transparent 80%),
+            radial-gradient(circle at center top,blue, transparent 80%);
+        }
+    </style>
+</head>
+
+<div>
+    <div class="demo2"></div>
+    <div class="demo1"></div>
+    <img src="https://picsum.photos/400/400/?random=1" style="border:1px solid #000">
+</div>
+
+</html>
