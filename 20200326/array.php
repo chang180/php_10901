@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>陣列介紹</title>
 </head>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 21d3c348ccb17c20ceb40d184106a19082d516af
 
 <body>
     <h1>
@@ -83,16 +79,11 @@
 
 
 
-
-
         ?>
 
     </h1>
 </body>
 
-<<<<<<< HEAD
-=======
-=======
 <body>
 <h1>
 <?php
@@ -162,6 +153,4 @@ print_r($a1);
 
 </h1>    
 </body>
->>>>>>> 0719b6990c8f169a8cdcff481907c2b928ca855c
->>>>>>> 21d3c348ccb17c20ceb40d184106a19082d516af
 </html>

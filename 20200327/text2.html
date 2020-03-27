@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Break</title>
+    <style>
+        p.demo1 {
+            word-break: normal;
+        }
+
+        p.demo2 {
+            word-break: keep-all;
+            /* 保留單字不特別會去切斷，除了"-"符號可切斷 */
+        }
+
+        p.demo3 {
+            /* 無論如何，遇到邊界都會切斷 */
+            word-break: break-all;
+        }
+
+        p.demo4 {
+            /* 前兩者的綜合，除非遇到整個單字已塞滿空間也塞不下去才會切斷 */
+            word-break: break-word;
+
+        }
+
+        p {
+            width: 9rem;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="demo1">Lorem laborum fugit obcaecati sit, dicta rerum explicabo possimus illum eaque repudiandae sint
+        corporis amet reprehenderit! Ex officia fugit officiis id doloremque explicabo excepturi sapiente optio laborum
+        quis fuga , so
+
+    </p>
+    <p class="demo2">Lorem laborum fugit obcaecati sit, dicta rerum explicabo possimus illum eaque repudiandae sint
+        corporis amet reprehenderit! Ex officia fugit officiis id doloremque explicabo excepturi sapiente optio laborum
+        quis fuga , so
+
+    </p>
+    <p class="demo3">Lorem laborum fugit obcaecati sit, dicta rerum explicabo possimus illum eaque repudiandae sint
+        corporis amet reprehenderit! Ex officia fugit officiis id doloremque explicabo excepturi sapiente optio laborum
+        quis fuga , so
+
+    </p>
+    <p class="demo4">Lorem laborum fugit obcaecati sit, dicta rerum explicabo possimus illum eaque repudiandae sint
+        corporis amet reprehenderit! Ex officia fugit officiis id doloremque explicabo excepturi sapiente optio laborum
+        quis fuga , so
+
+    </p>
+
+    <!-- 這些設定對中文無感 -->
+    <p class="demo1">或者俱樂部有關部門升級算是街道一遍兩年次數功夫圖像化刺激名單，如此暫無最新從而此處，培訓感染，同意。</p>
+    <p class="demo2">或者俱樂部有關部門升級算是街道一遍兩年次數功夫圖像化刺激名單，如此暫無最新從而此處，培訓感染，同意。</p>
+    <p class="demo3">或者俱樂部有關部門升級算是街道一遍兩年次數功夫圖像化刺激名單，如此暫無最新從而此處，培訓感染，同意。</p>
+    <p class="demo4">或者俱樂部有關部門升級算是街道一遍兩年次數功夫圖像化刺激名單，如此暫無最新從而此處，培訓感染，同意。</p>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG</title>
+    <style>
+        div {
+            width: 400PX;
+            height: 300PX;
+            background-color: red;
+            /* background-image: url("https://picsum.photos/100/100/?random=1"); */
+            /* background:url("https://picsum.photos/120/120/?random=1"); */
+
+            /* 同時設定將以最後設定為主 */
+            /* background-repeat: repeat-y;
+            background-repeat: repeat-x;
+            background-repeat: round; */
+
+        }
+
+        .demo0 {
+            background-image: url("https://picsum.photos/60/90/?random=1");
+        }
+        .demo1 {
+            background-image: url("https://picsum.photos/60/90/?random=1");
+            background-repeat: round;
+        }
+        .demo2 {
+            background-image: url("https://picsum.photos/60/90/?random=1");
+            background-repeat: space;
+        }
+        .demo3 {
+            background-image: url("https://picsum.photos/60/90/?random=1");
+            background-repeat: round space;
+            /* x軸 y軸 */
+        }
+        .demo4 {
+            background-image: url("https://picsum.photos/60/90/?random=1");
+            background-repeat: no-repeat;
+            /* background-position: right bottom; */
+            /* background-position-x: right;
+            background-position-y: bottom; */
+            /* background-position: calc(100% + 30px) 50%; */
+            /* 可以只露一半，或是說超過了的部份不會顯示出來 */
+            /* calc()是CSS3提供的數值運算功能，可以直接做計算 */
+            background-position: 50% 50%;
+            /* background-size: 120px 120px; */
+            /* background-size: cover; */
+            /* cover會自動裁切 */
+            background-size: contain;
+            /* contain會自動縮進 */
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo0"></div>
+    <hr>
+    <div class="demo1"></div>
+    <hr>
+    <div class="demo2"></div>
+    <hr>
+    <div class="demo3"></div>
+    <hr>
+    <div class="demo4"></div>
+    <!-- <div style="width: 400px; height: 300px;"></div> -->
+    <!-- <img src="https://picsum.photos/120/120/?random=1"> -->
+</body>
+
+</html>
