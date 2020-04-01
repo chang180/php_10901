@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <style>
+        ul {
+            /* list-style-type: decimal; */
+            list-style-image: url("virus.png");
+        }
+
+        ul.demo2 {
+            background-color: oldlace;
+            /* list-style-type: none; */
+
+        }
+
+        .demo2>li {
+            background-color: darksalmon;
+            display: inline-block;
+            /* font-size:0; */
+            /* margin: 10px; */
+        }
+
+        .demo2 a {
+            background-color: lightgreen;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <p><span>Loremamet.</span><span>Loremamet.</span><span>Loremamet.</span>Lorem.</p>
+    <!-- ul>{li>a)*4 -->
+    <ul class="demo2">
+        <!-- 斷行會產生一個空格印出，
+        解法一：寫成一行，無視程式自動格式縮成一行。
+        解法二：故意破壞其結構，讓li標籤之間的空格消失，
+        解法三：在CSS內用margin負數方式推回去，這方法並不好，
+        解法四：將斷行空白所在位置在css中設定一個font-size=1將其消除
+        網路上關於 inline-block 4px 的關鍵字處理方式時，可以再多參考一些-->
+        <li><a href="#">回首頁</a></li>
+        <li><a href="#">產品介紹</a></li>
+        <li><a href="#">客戶案例</a></li>
+        <li><a href="#">聯絡我們</a></li>
+    </ul>
+
+    <!-- ul>li{$$$}*5 -->
+    <ul start="5" class="demo1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+    <ol start="6">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ol>
+
+</body>
+
+</html>
