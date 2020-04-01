@@ -2,57 +2,123 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dice</title>
-    <style>
-        body {
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+    }
 
-        .dice {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #fff, #ccc);
-            border: 1px solid #000;
-            border-radius: 10px;
-            box-shadow: 2px 2px 1px 0 #000;
-            position: relative;
-            display: inline-block;
-        }
+    /* 骰子的本體，不會弄就糗了，重點是要懂得position的設定，其他像是
+    background及box-shadow的設定，不會弄也要會查！ */
+    .dice {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      /* 圓角設定，有弄出效果即可 */
+      border-radius: 10px;
+      background: linear-gradient(45deg, #fff, #ccc);
+      box-shadow: 2px 2px 1px 0 #000;
+      position: relative;
+      /* div是block物件，不設定成inline會變成每個骰子一整行 */
+      display: inline-block;
+    }
 
-        /* 點子大小是骰子的0.2倍 */
-        .dis {
-            width: 40px;
-            height: 40px;
-            background:#000;
-            border-radius: 50%;
-            position: absolute;
-        }
+    /* 點子大小是骰子的0.2倍 */
+    .dot {
+      width: 40px;
+      height: 40px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+    }
 
-        .at1{
-            left:20px;
-            bottom:20px
-        }
+    /* 雖然只用了7個位置，但用九宮格的方式設定比較容易去想，相對位置可用像素也可用百分比設定 */
+    .at1 {
+      left: 20px;
+      top: 20px;
+    }
 
-    </style>
+    .at3 {
+      right: 20px;
+      top: 20px;
+    }
+
+    .at4 {
+      left: 20px;
+      top: 80px;
+    }
+
+    .at5 {
+      left: 80px;
+      top: 80px;
+    }
+
+    .at6 {
+      right: 20px;
+      top: 80px;
+    }
+
+    .at7 {
+      left: 20px;
+      bottom: 20px;
+    }
+
+    .at9 {
+      right: 20px;
+      bottom: 20px;
+    }
+
+    /* 紅點的位置直接覆蓋 */
+    .red {
+      background: #f00;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- 練習一下emmet怎麼把下列標籤設定出來 -->
+  <!-- 練習一下emmet怎麼把下列標籤設定出來 -->
 
-    <div class="dice">
-        <div class="dis at1"></div>
-        <div class="dis at2"></div>
-        <div class="dis at3"></div>
-        <div class="dis at4"></div>
-        <div class="dis at5"></div>
-        <div class="dis at6"></div>
-        <div class="dis at7"></div>
-        <div class="dis at8"></div>
-        <div class="dis at9"></div>
-    </div>
+  <!-- .dice*7>.dot.at$*9 -->
+  <!-- 很好，搞出來之後還真的有一種莫名的成就感，注意兩個class中間是直接用.連接，emmet除了內容{}外都不能用空格 -->
+
+  <div class="dice">
+    <div class="dot at5 red"></div>
+  </div>
+  <div class="dice">
+    <div class="dot at1"></div>
+    <div class="dot at9"></div>
+  </div>
+  <div class="dice">
+    <div class="dot at1"></div>
+    <div class="dot at5"></div>
+    <div class="dot at9"></div>
+  </div>
+  <div class="dice">
+    <div class="dot at1"></div>
+    <div class="dot at3"></div>
+    <div class="dot at7"></div>
+    <div class="dot at9"></div>
+  </div>
+  <div class="dice">
+    <div class="dot at1"></div>
+    <div class="dot at3"></div>
+    <div class="dot at5"></div>
+    <div class="dot at7"></div>
+    <div class="dot at9"></div>
+  </div>
+  <div class="dice">
+    <div class="dot at1"></div>
+    <div class="dot at3"></div>
+    <div class="dot at4"></div>
+    <div class="dot at6"></div>
+    <div class="dot at7"></div>
+    <div class="dot at9"></div>
+  </div>
+
 
 </body>
 
@@ -63,7 +129,7 @@
 
 
 
-<!-- 解答抄在下面，下課後參考用
+<!-- 解答複製於下方，下課後參考用
 
 <div class="container">
     <div class="dice">
