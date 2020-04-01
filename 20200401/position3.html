@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul.demo2 {
+            background-color: darkred;
+            /* list-style-type: decimal; */
+            /* list-style-image: url("virus.png"); */
+            font-size: 0;
+            position: sticky;
+            top: 0;
+            width: 100vw;
+
+        }
+
+
+        .demo2>li {
+            background-color: darksalmon;
+            display: inline-block;
+            font-size: 1rem;
+            /* font-size:0; */
+            /* margin: 10px; */
+        }
+
+        .demo2 a {
+            background-color: lightgreen;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="https://fakeimg.pl/600x900">
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo omnis necessitatibus perspiciatis magnam hic quis
+        esse tempore adipisci assumenda, repellat libero ut consequatur et, officia atque. Voluptatem quisquam minus
+        sapiente harum consequuntur, vero cupiditate obcaecati fugit suscipit illum debitis aut necessitatibus sit
+        recusandae quod hic! Optio ut numquam, quisquam rerum porro incidunt quaerat. Vel quos minus doloremque,
+        accusamus quibusdam nesciunt itaque! Veniam a hic fugiat culpa dolore laudantium perspiciatis voluptatibus,
+        explicabo, dolores distinctio, voluptatum vel eligendi? Sapiente corrupti vitae adipisci rem, sequi corporis
+        illo tempora? Voluptatibus sed maiores nobis mollitia vero ipsa voluptatem, maxime nisi pariatur cumque repellat
+        blanditiis tempore rerum illo itaque, adipisci autem porro aperiam doloremque repudiandae reprehenderit quia,
+        architecto earum. Ratione modi tenetur ipsum eaque, quas veritatis ullam sit rem ut cum ab vel officiis deserunt
+        quia harum aut, velit eos. Excepturi rerum qui perferendis, consectetur aperiam libero voluptatibus rem totam
+        quod itaque, ratione, quis odit quibusdam neque ea hic. Aliquid dolor quam repellat est, perspiciatis
+        reprehenderit eius eveniet maxime natus veniam cum labore quidem ea, blanditiis atque, aperiam cupiditate!
+        Corrupti nemo sunt a quasi autem explicabo consequatur animi itaque. Amet, ullam libero! Distinctio perspiciatis
+        magni ea quo eum hic nam. Repellat dignissimos sapiente minus deserunt at accusamus quisquam necessitatibus,
+        nostrum, optio suscipit quasi. Assumenda totam laborum voluptas. Ullam ratione saepe quidem autem, eligendi
+        ducimus quis vero aliquam inventore quae similique earum, repellat tenetur iure voluptatum fugit mollitia!
+        Delectus esse et nulla ipsam temporibus quod dicta harum quaerat incidunt doloribus. Reprehenderit assumenda
+        minima natus possimus illo nemo nostrum asperiores praesentium dolorum fuga quam culpa, et ipsa a vitae! Optio
+        quasi amet sint blanditiis! Tempora minima accusantium deleniti quis, illum quos esse molestiae reprehenderit
+        magnam molestias laborum aperiam debitis, quaerat distinctio cupiditate, obcaecati ab. Molestiae sed iste fugit
+        a incidunt dicta repellat, cupiditate repellendus esse aliquid accusantium earum provident quod natus recusandae
+        modi quae ullam, assumenda voluptatem ipsa, deserunt labore ea exercitationem. Veniam modi dolorum esse, aut
+        veritatis delectus ipsa quidem perspiciatis aliquam aliquid, eum sapiente earum. Quis, esse repudiandae. Culpa
+        sit, vel ab animi harum vero, aliquam architecto repellat ullam dolor, inventore quaerat dolorum impedit ut.
+        Error tempora quo doloremque illo, dolore quasi repellendus culpa maiores aliquid, praesentium ullam tempore
+        exercitationem magni dolorum provident repellat voluptatum ut? Quo ducimus iure praesentium tempore iusto dicta
+        dignissimos ea aspernatur illo iste, eos commodi delectus itaque? Illum sint totam optio commodi fugit atque
+        obcaecati eveniet tempore et perferendis accusantium accusamus eaque ex asperiores quia voluptatem maiores, cum,
+        officia corporis rem? Quod iure animi necessitatibus nesciunt corrupti enim vero modi quaerat nisi ratione minus
+        labore cum reiciendis, minima voluptatum, maiores, expedita dolor magni autem quam velit magnam cupiditate
+        adipisci. Non dicta rem praesentium voluptatum ab doloribus, necessitatibus esse recusandae nulla explicabo
+        repellat repudiandae aliquam dignissimos! Maxime temporibus natus assumenda eos cum itaque dignissimos!
+        Accusantium, quisquam laudantium iste iure mollitia nulla eaque ab architecto doloribus corrupti dicta nemo in
+        dolore dolorum amet adipisci minima natus possimus maiores. Ipsa ducimus provident laudantium error sequi
+        eveniet molestias. Fugiat corrupti fuga, iste tenetur perferendis dolor sint facilis unde ad magni praesentium
+        autem, maxime nisi maiores dicta, velit molestiae quisquam quae harum rerum ut vero. Labore dolore ducimus
+        officia hic magnam similique possimus quae, quibusdam laudantium ipsa nemo quam tempore assumenda ex ab rerum
+        dolor, fugit consequatur ratione ea, inventore distinctio sint illo quis. Odio sunt tempore, esse eligendi,
+        temporibus optio molestiae facilis adipisci deserunt quae unde porro laudantium exercitationem officia
+        quibusdam? Reprehenderit laboriosam eos ipsa ipsum architecto nobis expedita quos rerum est, commodi dolorem ab
+    </p>
+    <ul class="demo2">
+        <!-- 斷行會產生一個空格印出，
+        解法一：寫成一行，無視程式自動格式縮成一行。
+        解法二：故意破壞其結構，讓li標籤之間的空格消失，
+        解法三：在CSS內用margin負數方式推回去，這方法並不好，
+        解法四：將斷行空白所在位置在css中設定一個font-size=1將其消除
+        網路上關於 inline-block 4px 的關鍵字處理方式時，可以再多參考一些-->
+        <li><a href="#">回首頁</a></li>
+        <li><a href="#">產品介紹</a></li>
+        <li><a href="#">客戶案例</a></li>
+        <li><a href="#">聯絡我們</a></li>
+    </ul>
+    <p>facere velit cum ut quidem magnam minus maiores, aspernatur quo eum quam soluta! Quod odio molestias dolores
+        rem, commodi molestiae inventore quos, libero pariatur laboriosam, sapiente recusandae odit ex officia
+        voluptates sunt velit esse adipisci ipsum iure! Consectetur rerum numquam repudiandae ipsa nihil quae
+        laudantium, amet illum minima dicta saepe aperiam magnam. Blanditiis, ipsam assumenda explicabo nulla odio
+        suscipit deleniti et, doloribus saepe ipsa inventore architecto alias, cupiditate voluptatem unde quam vitae
+        quis error ratione modi. Beatae alias eos itaque consequatur! Voluptate, perferendis laborum. Ex voluptates
+        reiciendis aperiam illum nam eius accusantium exercitationem, blanditiis, impedit excepturi nesciunt? Minus
+        perferendis quam ducimus enim exercitationem cumque dolore alias, accusantium voluptatem totam. Enim eum magni
+        nostrum necessitatibus natus fuga eveniet veritatis voluptates culpa accusamus odio, perferendis optio eaque,
+        nulla suscipit obcaecati facilis ex, laborum nisi architecto facere! Architecto tenetur et reprehenderit,
+        inventore, assumenda iste magni ullam quae optio laborum quaerat sint illum ad dignissimos unde libero maxime
+        repellendus. Consequatur quam illum reiciendis, quae ut distinctio quasi accusamus hic. Eos quae quas totam
+        repellat. Voluptatum officiis necessitatibus debitis. Maiores officia soluta aliquid aut nisi veniam ut
+        aspernatur alias, consectetur ullam accusantium voluptate, eveniet quam odio illum nam necessitatibus in vitae
+        sequi earum culpa unde libero? Ipsum, sequi voluptatibus nemo suscipit earum tempore cupiditate. Quas illum
+        tenetur neque cum deserunt iure beatae maxime consectetur totam architecto provident exercitationem libero
+        necessitatibus, repellat dolore odit culpa vitae magni dolorem accusamus quibusdam. Eveniet mollitia amet,
+        tempora blanditiis corrupti veniam quidem excepturi maxime. Distinctio iure nihil iste provident, illo mollitia
+        voluptas nesciunt qui labore cupiditate ad consequatur? Dolor, officiis accusantium quod reprehenderit deleniti
+        ducimus enim suscipit architecto adipisci quae voluptas, molestiae veritatis totam ab, eligendi dicta facilis
+        similique expedita reiciendis sunt quam temporibus? Deserunt est repellendus asperiores nobis animi voluptate
+        sapiente numquam labore dolorum suscipit obcaecati ratione, nam aperiam! Quos nihil rerum natus. Harum excepturi
+        pariatur asperiores natus dolor temporibus ullam quo, quaerat molestiae modi sit qui expedita deserunt
+        reiciendis totam, soluta debitis similique repellat, commodi cumque vel facere! Dicta officiis incidunt ipsum
+        temporibus corporis adipisci officia reiciendis necessitatibus dolores eos. Debitis vel illo ad dolore error,
+        provident, cupiditate nihil doloremque eaque alias optio ratione esse nemo est, dolorem consequatur distinctio
+        minima praesentium deserunt harum. Quibusdam ratione magnam ut accusamus voluptatibus deleniti sit. Optio, quae
+        harum! Officiis minima temporibus ipsa sapiente, accusantium ab atque, labore voluptate animi cupiditate
+        adipisci distinctio? Accusantium animi iste corrupti ab! Ipsam, sit rem? Maxime optio amet minus vero nulla illo
+        quod, qui, veniam veritatis odit quae ducimus similique debitis quia numquam distinctio cumque dignissimos!
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo ut beatae rerum, maxime fugit possimus.
+        Voluptatum repellendus, dolor in unde deserunt tempora non eius natus enim temporibus aperiam laboriosam
+        laborum, velit quasi! Tempore deserunt veritatis ab numquam dolor maxime consequatur autem id iste consectetur
+        dicta itaque nemo dolore magnam, soluta pariatur quidem! Cum facilis rem necessitatibus, fugit ipsa quaerat non,
+        accusantium dolorem culpa optio dolorum quos natus impedit nam assumenda amet quibusdam est dicta totam esse
+        modi quisquam suscipit? Ipsam hic quidem quod aliquid non laborum molestias sunt culpa, eum odit commodi rerum,
+        expedita excepturi atque porro soluta esse a qui omnis amet ullam recusandae ducimus? Eius quaerat dignissimos,
+        repellat praesentium suscipit ducimus porro illo dolorum, illum maxime commodi ipsam similique ullam totam
+        mollitia molestiae fugiat laudantium animi quos! Aliquam inventore nulla est omnis ipsam beatae deserunt,
+        nesciunt alias facilis odit, labore fugiat ducimus cumque repudiandae rem tempore voluptates porro facere
+        necessitatibus aperiam, distinctio esse veritatis voluptatum molestiae. Nisi beatae mollitia nemo deserunt
+        nesciunt earum quidem inventore praesentium, amet iure corrupti optio, quos, esse doloremque eligendi
+        perferendis iusto? Sapiente fugiat accusamus repellendus minus, labore aut corporis et tenetur commodi,
+        voluptatem eligendi? Voluptatum commodi blanditiis, placeat quas nesciunt dignissimos tempora a amet illo sint
+        in magnam ab sequi sunt atque dolor accusantium perferendis earum ex incidunt odit soluta eligendi, ut
+        architecto. Nisi, nostrum. Sed at incidunt eaque, sint laborum porro unde culpa harum ipsum excepturi rem
+        quisquam minima quibusdam architecto. Adipisci facilis numquam quisquam laboriosam animi, unde id dolor natus
+        nemo delectus nulla repellendus accusamus debitis? Sed, ipsam molestias beatae impedit a, autem qui consequatur
+        sequi, pariatur dolor omnis. Nostrum vero fuga quisquam corporis. Optio dolore sunt sed, fugiat aspernatur atque
+        vero quasi libero! At hic quasi eum aperiam assumenda, libero similique laboriosam, beatae ratione quis aliquid
+        ipsa sit ab nisi?
+    </p>
+    <p><span>Loremamet.</span><span>Loremamet.</span><span>Loremamet.</span>Lorem.</p>
+    <!-- ul>{li>a)*4 -->
+
+
+</body>
+
+</html>

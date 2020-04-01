@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            /* 要主體置中可以設定一個50%的值，自己試出來的，也不曉得有沒有其他問題 */
+            /* margin:50%; */
+
+
+            /* height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: turquoise;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+            display: inline-block;
+            font-size: 1rem;
+
+        }
+
+        .bigbox {
+            width: 300px;
+            height: 240px;
+            background-color: #CCC;
+            border: 1px solid #000;
+            font-size: 0;
+            /* margin:50%; */
+        }
+        .rel{
+            background-color: lightskyblue;
+            position: relative;
+            left:25px; /*等同於 right:-25px*/
+            top:65%;
+            z-index: -999;
+        }
+        .abs{
+            background-color:lightsalmon ;
+            position: absolute;
+            left:-25px;
+            top:50px;
+            z-index: 1000;
+        }
+        .fix{
+            background-color: lightyellow;
+            position: fixed;
+            left: 0;
+            /* top:0; */
+        }
+        .main{
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div.bigbox>div.box{$$}*20 -->
+    <div class="bigbox main">
+        <div class="box">01</div>
+        <div class="box">02</div>
+        <div class="box">03</div>
+        <div class="box">04</div>
+        <div class="box">05</div>
+        <div class="box">06</div>
+        <div class="box rel">07</div>
+        <div class="box">08</div>
+        <div class="box abs">09</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+        <div class="box fix" style="top:0px;left:0;z-index:2;">13</div>
+        <div class="box">14</div>
+        <div class="box">15</div>
+        <div class="box">16</div>
+        <div class="box">17</div>
+        <div class="box">18</div>
+        <div class="box fix" style="top:25px;left:25px">19</div>
+        <div class="box">20</div>
+    </div>
+</body>
+
+</html>
