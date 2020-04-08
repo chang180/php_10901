@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨堂練習</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            font-family: "Microsoft JhengHei";
+            height: 768px;
+            width: 1024px;
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            margin: auto;
+            /* display:inline-block;
+            vertical-align: center;
+            padding:auto; */
+        }
+
+        .container .header {
+            height: 10%;
+            width: 100%;
+            background: #000000;
+        }
+
+        .container .left {
+            height: 80%;
+            width: 20%;
+            background: #c9c7c7;
+            float: left;
+        }
+
+        .container .right {
+            height: 80%;
+            width: 80%;
+            float: right;
+            background: #535252;
+        }
+
+        .container .footer {
+            clear: both;
+            height: 10%;
+            width: 100%;
+            background: #000000;
+        }
+
+        /* 物件置中，為本次作之重點，真正香的東西！ */
+        .container>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="left">Left</div>
+        <div class="right">Right</div>
+        <div class="footer">Footer</div>
+    </div>
+
+</body>
+
+</html>
