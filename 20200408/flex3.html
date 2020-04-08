@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        background: lightgray;
+        height: 800px;
+        display: flex;
+
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-flow: row nowrap;
+    }
+
+    /*子項目 flex's item */
+
+    /*
+    flex:0 1 auto;
+    flex: flex-grow flex-shrink flex-basis
+    flex:膨脹系數 收縮係數 基本空間
+
+    空間優先權：
+    flex-basis > width > content
+    */
+
+    /* bootstrap 都是長這樣：
+flex:0 1 33.3% */
+
+
+    .red {
+        background: lightpink;
+        /* height: 100px; */
+        /* flex-shrink: 1;
+        flex-grow: 1; */
+        flex-basis: 30%;
+    }
+
+    .green {
+        background: lightgreen;
+        flex-shrink: 2;
+        /* flex-grow: 2; */
+
+        /* height: 200px; */
+    }
+
+    .blue {
+        background: lightblue;
+        flex-shrink: 3;
+        flex-grow: 3;
+        width: 200px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="item red">R Lorem ipsum dolor sit amet.</div>
+        <div class="item green">G Lorem ipsum dolor sit amet.</div>
+        <div class="item blue">B Lorem ipsum dolor sit amet.</div>
+    </div>
+</body>
+
+</html>

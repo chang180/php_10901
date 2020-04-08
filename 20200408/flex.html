@@ -6,48 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flex-box(彈性盒)</title>
     <style>
-        body{
-            margin:0;
+        body {
+            margin: 0;
         }
+
         .container {
             background: lightgray;
-            padding: 10px;
+            /* padding: 10px; */
             /* 本次教學重點，設定display為flex之後才能做其他所有設定 */
-            display:flex;
+            display: flex;
             /* 副容器設定的高度會統一整行子項目的高度，但仍然各別子項目的設定可變 */
-            height:200px;
+            height: 800px;
+            justify-content: flex-start;
+            align-items: stretch;
+
+            flex-flow: row wrap;
+            align-content: space-around;/*遇到多行的元素，就要使用 align-content 這個屬性*/
         }
 
         .red {
             background: lightpink;
-            /* margin:10px; */
-            width:50px;
-            height:50px;
+            height: 100ps;
+            align-self: center; /*獨立對子項目操作同align-items行為*/
         }
 
         .green {
             background: lightgreen;
-            padding:10px;
+            height: 200px;
         }
 
         .blue {
             background: lightskyblue;
+            width:100px;
         }
-
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="item red">R</div>
-        <div class="item green">G</div>
-        <div class="item blue">B</div>
-        <div class="item red">R</div>
-        <div class="item green">G</div>
-        <div class="item blue">B</div>
-
+        <div class="item red">R Lorem ipsum dolor sit amet.</div>
+        <div class="item green">G Lorem ipsum dolor sit amet.</div>
+        <div class="item blue">B Lorem ipsum dolor sit amet.</div>
+        <div class="item red">R Lorem ipsum dolor sit amet.</div>
+        <div class="item green">G Lorem ipsum dolor sit amet.</div>
+        <div class="item blue">B Lorem ipsum dolor sit amet.</div>
+        <div class="item red">R Lorem ipsum dolor sit amet.</div>
+        <div class="item green">G Lorem ipsum dolor sit amet.</div>
+        <div class="item blue">B Lorem ipsum dolor sit amet.</div>
+        <div class="item red">R Lorem ipsum dolor sit amet.</div>
+        <div class="item green">G Lorem ipsum dolor sit amet.</div>
+        <div class="item blue">B Lorem ipsum dolor sit amet.</div>
+        
     </div>
-
+    
 </body>
 
 </html>

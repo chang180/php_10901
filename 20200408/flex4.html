@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .container {
+        background: lightgray;
+        display: flex;
+        height: 500px;
+        width: 500px;
+    }
+
+
+    .item {
+        width: 100px;
+        margin: 10px;
+    }
+
+
+    .red {
+        background: lightpink;
+        flex-shrink: 0;
+    }
+
+    .green {
+        background: lightgreen;
+        flex-shrink: 1;
+
+    }
+
+    .blue {
+        background: lightblue;
+        flex-shrink: 2;
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="item red">R Lorem ipsum dolor sit amet.</div>
+        <div class="item green">G Lorem ipsum dolor sit amet.</div>
+        <div class="item blue">B Lorem ipsum dolor sit amet.</div>
+    </div>
+</body>
+
+</html>

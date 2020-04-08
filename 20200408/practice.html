@@ -7,10 +7,30 @@
     <title>隨堂練習</title>
     <style>
         body {
+            /* 每次都要設定一次，否則會有8px的預設值干擾 */
             margin: 0;
+            /* flex置中需在外面再包一層，本例就使用body */
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            /* vh及vw的單位都是百分比 */
+            height:100vh;
         }
 
         .container {
+            /* 整體置中方式 ver1
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto; */
+            /* ver 2 */
+            /* position: absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%); */
+
             font-family: "Microsoft JhengHei";
             height: 768px;
             width: 1024px;
@@ -50,10 +70,12 @@
             background: #000000;
         }
 
-        /* 物件置中，為本次作之重點，真正香的東西！ */
+        /* 物件置中，為本次練習之重點，真正香的東西！ */
         .container>div {
             display: flex;
+            /* 水平置中 */
             justify-content: center;
+            /* 垂直置中 */
             align-items: center;
         }
     </style>
