@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float2</title>
+
+    <style>
+        /* div{
+            border:1px solid #000;
+        } */
+        body {
+            margin: 0;
+        }
+
+        .container {
+            width: 960px;
+            background: lightcoral;
+            margin: 0 auto;
+            overflow: auto;
+
+        }
+
+        /* 下面示範如何讓3個區域平均放在同一行 */
+        .col {
+
+            box-sizing: border-box;
+            width: 300px;
+            border: 11px solid lightgreen;
+            padding: 50px;
+
+            /* margin並不計算在border-box之內，空間計算要注意 */
+            margin: 10px;
+
+            /* 使用display的方式會出現4px的邊界問題 */
+            /* display:inline-block; */
+
+
+            /* background:lightcyan; */
+            float: left;
+        }
+
+        .clrbox {
+            width: 960px;
+            background: yellowgreen;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .container::after, .clear::before{
+            content:"";
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div.container>div.col*3     -->
+    <div class="container">
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. In illum quaerat alias, natus sint
+            expedita sequi perferendis temporibus, facere beatae deleniti recusandae! Unde accusamus aut culpa ullam
+            velit. Quasi eius ad fugit harum facilis modi, eaque repudiandae consequuntur officiis nesciunt natus earum.
+            Voluptatum modi nesciunt mollitia velit facilis recusandae! Corrupti.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. In illum quaerat alias, natus sint
+            expedita sequi perferendis temporibus, facere beatae deleniti recusandae! Unde accusamus aut culpa ullam
+            velit. Quasi eius ad fugit harum facilis modi, eaque repudiandae consequuntur officiis nesciunt natus earum.
+            Voluptatum modi nesciunt mollitia velit facilis recusandae! Corrupti.</div>
+        <div class="clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. In illum quaerat alias, natus sint
+            expedita sequi perferendis temporibus, facere beatae deleniti recusandae! Unde accusamus aut culpa ullam
+            velit. Quasi eius ad fugit harum facilis modi, eaque repudiandae consequuntur officiis nesciunt natus earum.
+            Voluptatum modi nesciunt mollitia velit facilis recusandae! Corrupti.</div>
+    </div>
+    <!-- 可使用clear的設定，將之前的float設定清掉 -->
+    <!-- <div style="clear:both"></div> -->
+
+    <div style="clear:both"></div>
+
+    <div class="clrbox"></div>
+</body>
+
+</html>
