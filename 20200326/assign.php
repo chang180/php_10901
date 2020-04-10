@@ -22,7 +22,7 @@ table tr:nth-child(1), td:nth-child(1){
 <body>
     <h1>
 <?php
-echo "<table border=1 align='center' height='750px' width='750px'>";
+echo "<table align='center' height='750px' width='750px'>";
 echo '<td>'."&nbsp"."</td>";
     for($i=1;$i<=9;$i++){
         echo '<td>'.$i.'</td>';  
