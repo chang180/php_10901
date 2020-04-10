@@ -20,14 +20,13 @@
         }
         return $leapyear;
     }
-    $year1 = 2020;
-    echo $year1 . "年之後500年的閏年：" . "<hr>";
+    $testYear=rand(2020,2520);
+    echo $testYear . "年之後500年的閏年：" . "<hr>";
     echo "<pre>";
-    print_r(leapYear500($year1));
+    print_r(leapYear500($testYear));
     echo "</pre>" . "<hr>";
 
-    $testYear=rand(2020,2520);
-    if(in_array($testYear,leapYear500($year1))){
+    if(in_array($testYear,leapYear500($testYear))){
         echo $testYear."是閏年";
     }else{
         echo $testYear."是平年";
