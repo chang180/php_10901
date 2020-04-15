@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition 轉場2</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        text-align: center;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+
+    .box {
+        width: 100px;
+        height: 100px;
+        background: darkseagreen;
+        line-height: 100px;
+        position: relative;
+        transition: all 5s ease 0s;
+    }
+
+    .box::after {
+        content: "Transition";
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left:0;
+        top:0;
+        background:darkred;
+        /* opacity: 0; */
+        transform-origin: left top;
+        transition:
+        /* all 2s ease 0s */
+        width 3s ease 0s,
+        background-color 3s ease 3s,
+        transform 3s ease 6s,
+        top 3s ease 9s
+        ;
+        
+    }
+
+    /* .box:hover{
+        background: black;
+        width: 200px;
+        opacity: 0.5;
+        transition:all 1s ease 0s; 
+    } */
+    .box:hover::after {
+        background: darkorange;
+        width: 200px;
+        transform: rotate(90deg);
+        top:-100%;
+        /* transition:all 1s ease 0s; */
+    }
+</style>
+
+<body>
+    <div class="box">Before</div>
+</body>
+
+</html>
