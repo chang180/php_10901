@@ -28,6 +28,7 @@
 
     $arr[] = [5, 8, 6, 3, 9, 2, 1, 7];
     $result = sortArray($arr);
+    foreach($arr as $val) echo $val."<br>";
     print_r($result);
 
 

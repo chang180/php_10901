@@ -26,15 +26,30 @@ function bubble_sort(&$array){
 }
 
 // 測試
-$rand_count=100;
 
-for($k=0; $k<$rand_count ; $k++){
+echo "氣泡演算法："."<hr>";
+$startTime = microtime(1);
+$arr = range(1, 1000);
+shuffle($arr);
 
-    $rand_array[] = rand(0,10000);
+echo "before sort: ", implode(', ', $arr), "\n";
+$sortArr = bubble_sort($arr);
+echo "after sort: ", implode(', ', $sortArr), "\n";
 
-}
+echo "use time: ", microtime(1) - $startTime, "s\n";
 
-bubble_sort($rand_array);
 
-print_r($rand_array);
+
+//之前的測試寫法，先收起來
+// $rand_count=100;
+
+// for($k=0; $k<$rand_count ; $k++){
+
+//     $rand_array[] = rand(0,10000);
+
+// }
+
+// bubble_sort($rand_array);
+
+// print_r($rand_array);
 ?>
