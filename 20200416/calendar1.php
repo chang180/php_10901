@@ -36,6 +36,7 @@
         background:yellow;
     }
     .day{
+        color:white;
         background:limegreen;
     }
     .day:hover{
