@@ -36,6 +36,7 @@
         background:yellow;
     }
     .day{
+        color:white;
         background:limegreen;
     }
     .day:hover{
@@ -47,8 +48,25 @@
 <h1>老師示範月曆格式製作</h1>
 <h4>月曆練習</h4>
 
+<div>
+    <form action="?" method='get'>
+    年份:<input type="number" name="year">
+    <input type="submit" value="產生年曆">
+
+    </form>
+</div>
 <?php
-$year = "2022";
+
+// 利用表單輸入獲得年份值，若沒有則使用今年做為值
+if(isset($_GET["year"])){
+    $year=$_GET['year'];
+}else{
+    $year=date("Y");
+}
+
+echo "<h4 style='text-align:center'>西元",$year,"年曆</h4>";
+
+// $year = "2022";
 echo "<div>年份:", $year,"</div>";
 echo "<table>";
 $m=0;
