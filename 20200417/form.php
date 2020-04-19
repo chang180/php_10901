@@ -8,9 +8,9 @@ function bmi()
 
     // isset() or empty()
     // 用於判斷初次載入網頁變數不存在之情形
-    if (isset($_POST['weight']) && isset($_POST['height'])) {
-        $weight = $_POST['weight'];
-        $height = $_POST['height'];
+    if (isset($_GET['weight']) && isset($_GET['height'])) {
+        $weight = $_GET['weight'];
+        $height = $_GET['height'];
 
         echo "你輸入的身高是:", $height, "<br>";
         echo "你輸入的體重是:", $weight, "<br>";
@@ -77,7 +77,7 @@ function bmi()
 <body>
     <h4>BMI計算機</h4>
     <!-- form>input:text*2+input:submit -->
-    <form action="?" method="post">
+    <form action="?" method="get">
         身高(公分)：<input type="number" name="height" min="10" max="300" id="" step="0.1"><br>
         體重(公斤)：<input type="number" name="weight" min="30" max="500" id=""><br>
         <!-- oninput = "value=value.replace(/[^\d]/g,'')" -->
