@@ -1,0 +1,15 @@
+SELECT 
+	left(`name`,1) as '姓' ,
+    right(`name`,2) as '名字' , 
+    birthday as '生日',
+    left(`addr`,3) as '縣市',
+    CASE 
+		 WHEN substring(`nat_id`,2,1) = '1' THEN '男' 
+         WHEN substring(`nat_id`,2,1) = '2' THEN '女' 
+	END as '姓別'
+
+FROM 
+	`students` 
+WHERE 
+	left(`class_num`,3)='101' && 
+    dept='商業經營科'
