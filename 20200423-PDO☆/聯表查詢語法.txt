@@ -1,0 +1,111 @@
+找出101班的學生評分
+SELECT 
+	students.uni_id, 
+	students.class_num, 
+	students.name, 
+	students.dept, 
+	conduct.導師評分 
+FROM 
+	`students`,
+	`conduct` 
+where 
+	`students`.`class_num`=`conduct`.`班級座號` && 
+	LEFT(students.class_num,3)='101'
+
+
+找出102班的學生出缺勤紀錄
+
+SELECT 
+	records.*,
+    students.name,
+    students.dept 
+FROM 
+	`records`,
+    `students` 
+where 
+	students.class_num = records.班級座號 && 
+    left(records.班級座號,3)='102'
+
+找出102班學生出缺勤及成績
+SELECT 
+	records.*,
+    students.name,
+    students.dept,
+    conduct.*
+FROM 
+	`records`,
+    `students`,
+    `conduct`
+where 
+	students.class_num = records.班級座號 && 
+    students.class_num = conduct.班級座號 &&
+    left(records.班級座號,3)='102'
+
+
+分組
+SELECT 
+    students.name,
+    students.class_num,
+    students.dept,
+    sum(records.公假),
+    sum(records.事假),
+    sum(records.病假),
+    sum(records.曠課),
+    conduct.導師評分
+FROM 
+	`records`,
+    `students`,
+    `conduct`
+where 
+	students.class_num = records.班級座號 && 
+    students.class_num = conduct.班級座號 &&
+    left(records.班級座號,3)='102'
+GROUP by students.name
+
+排序及限制筆數
+SELECT 
+    students.name,
+    students.class_num,
+    students.dept,
+    sum(records.公假),
+    sum(records.事假),
+    sum(records.病假),
+    sum(records.曠課),
+    conduct.導師評分
+FROM 
+	`records`,
+    `students`,
+    `conduct`
+where 
+	students.class_num = records.班級座號 && 
+    students.class_num = conduct.班級座號 &&
+    left(records.班級座號,3)='102'
+GROUP by students.name
+ORDER by conduct.導師評分 DESC
+LIMIT 4,5
+
+outjoin 外部結合
+
+SELECT * 
+FROM `students` 
+left join 
+	(SELECT 
+		班級座號, 
+		sum(`公假`),
+		sum(`事假`) 
+	FROM `records` 
+	GROUP BY 班級座號)record
+	ON 
+		students.class_num = record.班級座號 && 
+		left(record.班級座號,3)='102' 
+
+WHERE left(students.class_num,3)='102'
+
+
+
+輔助指令筆記
+
+https://hackmd.io/@mackliu/Hkd7StSKH
+
+
+

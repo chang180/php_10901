@@ -1,0 +1,4 @@
+SELECT *  FROM `score` .(select s_id, c_id as '01'  from score where c_id='01')A,(select s_id, c_id as '02' from score where c_id='02')B where  score.s_id=A.s_id && score.s_id = B.s_id
+
+
+SELECT score.s_id, A.01,B.02 FROM `score` ,(select s_id, s_score as '01'  from score where c_id='01')A,(select s_id, s_score as '02' from score where c_id='02')B where  score.s_id=A.s_id && score.s_id = B.s_id && A.01>B.02 group by score.s_id
