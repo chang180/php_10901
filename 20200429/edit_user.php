@@ -50,7 +50,7 @@
 
     <form action="update_user.php" method="post" class="form">
 
-        <div><label for="acc">id：</label><br><input type="text" name="id" value="<?= $user['acc']; ?>" readonly></div>
+        <div><input type="hidden" name="id" value="<?= $user['id']; ?>"></div>
         <div><label for="acc">帳號：</label><br><input type="text" name="acc" value="<?= $user['acc']; ?>"></div>
         <div><label for="pw">密碼：</label><br><input type="password" name="pw" value="<?= $user['pw']; ?>"></div>
         <div><label for="name">姓名：</label><br><input type="text" name="name" value="<?= $user['name']; ?>"></div>

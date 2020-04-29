@@ -32,4 +32,6 @@ VALUES('$acc','$pw','$name','$email','$tel','" . date("Y-m-d") . "','" . date("Y
 }
 ?>
 <hr>
-<a href="register.php">回首頁</a>
+<a href="register.php">新增會員</a>
+<hr>
+<a href="listUser.php">會員列表</a>

@@ -45,7 +45,7 @@
         echo "    <td>".$row['create_time']."</td>";
         echo "    <td>";
         echo "<button class='table badge'><a href='edit_user.php?user=".$row['id']."'>編輯</a></button>";
-        echo "<button>刪除</button>";
+        echo "<button class='table badge'><a href='delete_user.php?user=".$row['id']."'>刪除</a></button>";
         echo "</td>";
         echo "</tr>";
         // echo "<tr><td>",$row['id'], "</td><td>", $row['name'], "</td><td>", $row['tel'], "</td></tr>";
@@ -65,7 +65,8 @@
 // echo "</table>";
 
     ?>
-
+<hr>
+    <a href="register.php">新增會員</a>
     
 </body>
 </html>
