@@ -50,9 +50,11 @@ $sql = "select * from students where left(`class_num`,4)='1020'";
 //PDO::FETCH_NUM
 //PDO::FETCH_BOTH - 預設值
 // $rows=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
-$rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+// $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
-
+// echo "<pre>";
+// print_r($rows);
+// echo "</pre>";
 // 錯誤示範，目前使用上多半會直接fetchALL()，以便使用foreach處理
 // $rows=$pdo->query($sql);
 // $row=$rows->fetch(PDO::FETCH_ASSOC);
