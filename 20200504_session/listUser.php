@@ -1,3 +1,10 @@
+<?php
+
+if(!isset($_COOKIE['status'])){
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,18 +16,22 @@
 </head>
 
 <body>
-    <h1>會員列表<?=$_GET['acc'];?></h1>
+    <h1>會員列表</h1>
     <?php
+
     include "dbConnect.php";
-
-    // 有傳值提示ID登入成功，否則引回登入頁面
-    if (isset($_GET['acc']))  echo "<h2>歡迎", $_GET['acc'], "登入</h2><br>";
+    
+    $sql = "SELECT * FROM `student` where `acc`= '".$_COOKIE['acc']."'";
+    // $sql = "SELECT * FROM `student`";
+    $user = $pdo->query($sql)->fetch();
+    
+    //使用cookie的做法
+    if (isset($_COOKIE['acc']))  echo "<h2>歡迎", $user['acc'], "登入</h2><br>";
     else header("location:login.php");
-
-    $sql = "SELECT * FROM `student` ORDER BY 'id' DESC ";
-
+    
+    $sql = "SELECT * FROM `student`";
     $rows = $pdo->query($sql)->fetchAll();
-    // print_r($rows);
+
     ?>
 
     <!-- table>tr*2>td*8 -->
@@ -60,10 +71,7 @@
     <hr>
     <a href="register.php">新增會員</a>
     <hr>
-    <!-- <a href="login.php">回登入</a> -->
-    <a href="login.php?status=true&acc=<?=$_GET['acc'];?>">回登入</a>
-    <hr>
-    <a href="login.php">登出</a>
+    <a href="login.php">回登入</a>
 
 </body>
 
