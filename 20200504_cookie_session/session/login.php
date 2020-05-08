@@ -24,21 +24,22 @@
         <tr>
             <td colspan="2">
                 <?php
-                $showLogin = true;
-                if (isset($_COOKIE['status'])) {
-                    // echo "status", $_COOKIE['status'];
+                session_start();
+                $showLogin = 'true';
+                if (isset($_SESSION['status'])) {
+                    // echo "status", $_SESSION['status'];
                     // if($_GET['status']=='false'){
                     //     echo "登入失敗";
                     // }
-                    switch ($_COOKIE['status']) {
+                    switch ($_SESSION['status']) {
                         case 'false':
                             echo "登入失敗";
                             break;
                         case 'true':
-                            // echo $_COOKIE['acc'];
+                            // echo $_SESSION['acc'];
                             // sleep(5);
-                            $showLogin = false;
-                            // header("location:checkLogin.php?acc=" . $_COOKIE['acc']);
+                            $showLogin = 'false';
+                            // header("location:checkLogin.php?acc=" . $_SESSION['acc']);
                             break;
                     }
                 }
@@ -50,7 +51,7 @@
 
     <!-- 判斷是否已存在登入者的cookie，若有就不再顯示登入表格 -->
     <?php
-    if ($showLogin == true) {
+    if ($showLogin == 'true') {
     ?>
         <div class="container-fluid w-25 p-2 bg-info text-light border shadow rounded">
             <h2>使用者登入</h2>
@@ -71,7 +72,9 @@
         </div>
     <?php
     } else {
-        echo "<h1><span class='bg-white text-danger'>你已登入</span></h1>";
+        echo "<h1><span class='bg-white text-danger'>你已登入</span></h1><br>";
+
+        echo "<h1><span class='bg-white text-danger'><a href='logout.php?logout=1'>登出</a></span></h1>";
     }
     ?>
     <hr>
