@@ -8,39 +8,69 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        body {
-            min-height: 600px;
-            min-height: 400px;
-
-        }
-
         .dice {
             width: 200px;
             height: 200px;
+            padding: 30px;
         }
 
         .dot {
             width: 40px;
             height: 40px;
+            /* background:#000; */
         }
     </style>
 </head>
 
 <body>
-    <div class="d-flex container">
-        <div class="dice col-4 d-flex border rounded-lg justify-content-center align-items-center m-2">
-            <div class="dot bg-danger rounded-circle">&nbsp;</div>
+    <!-- 到第3點就想不出來，去codepen找了答案參考，人家連骰子6面都能組合到一起變成3d骰子，其他還有能骰的，看了心都涼一半 -->
+    <div class="d-flex container-fluid flex-wrap justify-content-center align-items-center">
+        <div class="dice d-flex border rounded-lg shadow justify-content-center m-2">
+            <div class="dot align-self-center bg-danger rounded-circle">&nbsp;</div>
         </div>
-        <div class="dice col-4 d-flex p-4 border rounded-lg m-2">
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
             <div class="dot bg-dark rounded-circle">&nbsp;</div>
-            <div class="col-4">&nbsp;</div>
-            <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            <div class="dot align-self-end bg-dark rounded-circle">&nbsp;</div>
         </div>
-        <div class="dice col-4 d-flex flex-column border rounded-lg justify-content-around p-3 m-2">
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
             <div class="dot bg-dark rounded-circle">&nbsp;</div>
-            <div class="dot bg-dark rounded-circle">&nbsp;</div>
-            <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            <div class="dot bg-dark rounded-circle align-self-center">&nbsp;</div>
+            <div class="dot align-self-end bg-dark rounded-circle">&nbsp;</div>
         </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+            <div class="dot bg-dark rounded-circle align-self-center">&nbsp;</div>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+        </div>
+
     </div>
 
 </body>
