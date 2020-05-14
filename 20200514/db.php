@@ -31,6 +31,21 @@ function all($table){
     return $rows;
 }
 
+
+function all2($table,$condition){
+
+}
+
+function all3($table,$condition,$order){
+
+}
+// 還可以更多，但會建立太多函式
+
+function to($url){
+    header("location:".$url);
+}
+
+
 function find($table,$id){
     global $pdo;
     $sql="SELECT * FROM $table WHERE `id`='$id'";
@@ -40,6 +55,7 @@ function find($table,$id){
     }
     return $row;
 }
+
 
 
 
