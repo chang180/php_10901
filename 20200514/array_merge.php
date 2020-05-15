@@ -33,14 +33,25 @@ echo "</pre>";
 // return $arr;
 // }
 
-function am($a,...$b){
+function am($a,...$z){
     $arr=[];
     if(is_array($a)){
         $arr=$a;
     }else{
         echo "not an array";
     }
-    foreach($b as $val){
+    // 嘗試解析輸入的變數：
+    // echo "a變數：<hr>";
+    // print_r($a);
+    // echo "<hr>Z變數<hr>";
+    // echo "<pre>";
+    // var_dump($z);
+    // echo "</pre>";
+
+    // 二維陣列扁平化：
+    foreach($z as $val){
+        // echo "這些是z<hr>";
+        // print_r($val);
         foreach($val as $item){
             $arr[]=$item;
         }

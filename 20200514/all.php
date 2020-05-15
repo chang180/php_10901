@@ -100,5 +100,3 @@ foreach($rows as $row){
 echo "<hr><pre>";
 print_r(all('invoice'));
 echo "</pre>";
-
-?>
