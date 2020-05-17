@@ -32,9 +32,16 @@ function all($table,...$arg){
         $tmp=[];
         foreach($arg[0] as $key => $value){
             // $tmp=$tmp."`".$key."`='".$value."'";
+
             $tmp[]=sprintf("`%s`='%s'",$key,$value);
+            // echo sprintf("`%s`='%s'",$key,$value),"<br>";
+
+            // sprintf函式較簡潔，但回頭用陣列賦值方式會比較容易直接做出來
+            // $tmp[]=[" `$key` "." = "." '$value' "];
+            // echo "$key"." = "."$value","<br>";
         }
 // echo "sprintf:<br>";
+// echo "tmp[]:";
 // print_r($tmp);
 
         $sql=$sql." WHERE " . implode(" && ",$tmp);
@@ -98,5 +105,5 @@ foreach($rows as $row){
 
 // 不定參數函式，即使沒有下第2個以後的參數，也不會有錯誤
 echo "<hr><pre>";
-print_r(all('invoice'));
+var_dump(all('invoice'));
 echo "</pre>";

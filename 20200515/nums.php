@@ -12,7 +12,7 @@ echo "<hr>";
 echo $total;
 echo "<hr>";
 
-$total = nums('invoice',"","GROUP BY");
+$total = nums('invoice',"","GROUP BY year");
 echo "<hr>";
 echo $total;
 
