@@ -3,13 +3,13 @@
 // DELETE FROM table WHERE xx='aa' && yy='bb';
 include_once "base.php";
 
-delete('invoice',['id'=>2]);
-echo "<br>";
-delete('invoice',2);
-echo "<br>";
-delete('invoice',['period'=>1,'code'=>'AA']);
-echo "<br>";
-delete('invoice',7);
+// delete('invoice',['id'=>2]);
+// echo "<br>";
+// delete('invoice',2);
+// echo "<br>";
+// delete('invoice',['period'=>1,'code'=>'AA']);
+// echo "<br>";
+// delete('invoice',7);
 
 function delete($table, $arg)
 {
@@ -25,7 +25,7 @@ function delete($table, $arg)
     } else {
         $sql = $sql . " WHERE id = '$arg'";
     }
-    echo $sql;
+    // echo $sql;
     return $pdo->exec($sql);
 }
 
