@@ -127,11 +127,14 @@ function to($url){
 // 數字：48-57
 
 function chkacc($acc){
-    for($i=0;$i<strlen($acc);$i++){
-        $char=ord(mb_substr($acc,$i,1));
+    // for($i=0;$i<strlen($acc);$i++){
+    //     $char=ord(mb_substr($acc,$i,1));
+foreach(str_split($acc) as $val){
+    $char=ord($val);
 if(($char>=97 && $char<=122) || ($char>=65 && $char<=90) || ($char>=48 && $char<=57)){
-    //字串是允許的字元
-    return true;
+    //字串是允許的字元，啥也不做
+    // return true;
+    echo $char,"<hr>";
 }else{
     // 不允許的字元
     return false;
@@ -139,6 +142,8 @@ if(($char>=97 && $char<=122) || ($char>=65 && $char<=90) || ($char>=48 && $char<
 
 
     }
+    // 若都沒事
+    return true;
 }
 
 ?>
