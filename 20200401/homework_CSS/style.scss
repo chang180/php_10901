@@ -1,0 +1,102 @@
+$color-accent: #37BC9B;
+$width-left: 600px;
+$width-right: 350px;
+
+body {
+  background: #E6E9ED;
+  font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.calendar-container {
+  display: inline-block;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  width: $width-left + $width-right;
+  transform: translate(-50%, -50%);
+  
+  .left-container,
+  .right-container {
+    display: inline-block;
+    float: left;
+    height: 500px;
+  }
+  
+  .left-container {
+    background: #fff;
+    width: $width-left;
+    padding: 50px;
+    text-transform: uppercase;
+    
+    .title-year {
+      margin: 0;
+      font-weight: 400;
+    }
+    .title-month {
+      margin: 0;
+      font-weight: 300;
+      color: $color-accent;
+      letter-spacing: 3px;
+    }
+    
+    .table-calendar {
+      margin-top: 30px;
+      width: 100%;
+      color: #AAB2BD;
+      text-align: center;
+      
+      th {
+        font-weight: 400;
+      }
+      
+      td {
+        font-weight: 300;
+        
+        span {
+          display: inline-block;
+          margin: 5px;
+          height: 30px;
+          width: 30px;
+          line-height: 30px;
+          border-radius: 50%;
+          
+          &.active {
+            background: $color-accent;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  
+  .right-container {
+    background: $color-accent;
+    width: $width-right;
+    padding: 50px;
+    color: #fff;
+    
+    .title-day {
+      margin: 40px 0;
+      font-weight: 300;
+      letter-spacing: 3px;
+    }
+    
+    .table-day {
+      tbody tr td {
+        &:last-of-type {
+          padding: 5px 0 5px 20px;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  
+  .clearfix {
+    clear: both;
+  }
+}

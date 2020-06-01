@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS過場動畫作業</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>
+        <span>PHP</span>
+        <span>資</span>
+        <span>料</span>
+        <span>庫</span>
+        <span>網</span>
+        <span>頁</span>
+        <span>設</span>
+        <span>計</span>
+    </h2>
+    <div class="container">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+
+        <h2>Lorem ipsum dolor sit amet.</h2>
+
+    </div>
+    <script type="text/javascript">
+        document.querySelector("body").addEventListener('mousemove', eyeball);
+        function eyeball(){
+            var eye = document.querySelectorAll(".eye");
+            eye.forEach(function (eye){
+                // https://shubo.io/get-bounding-client-rect/
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth /2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientHeight /2);
+                // https://zh.wikipedia.org/wiki/Atan2
+                // https://www.w3school.com.cn/jquery/event_pagex.asp
+                let radian = Math.atan2(event.pageX - x, event.pageY -y);
+                let rot = (radian * (180 / Math.PI) * -1) +270;
+                eye.style.transform = "rotate(" + rot + "deg)";
+            })
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單練習</title>
+</head>
+<body>
+    <!-- HTML5建議使用...HTML標籤 -->
+    <fieldset>
+        <legend>表單介紹</legend>
+    
+    <!-- //Form表單有兩種提交方式，分別是GET與POST(超全域變數) -->
+    <!-- 如果表單需要設計傳送檔案，則必須有屬性 method="POST" enctype="multipart/form-data" -->
+<form method="POST" enctype="multipart/form-data">   
+    <table align="center">
+        <tr>
+            <td width="100">帳號：</td>
+            <td ><input type="text" name="acc" placeholder="請輸入帳號"></td>
+        </tr>
+        <tr>
+            <td>密碼：</td>
+            <td><input type="password" name="pwd" placeholder="請輸入密碼"></td>
+        </tr>
+        <tr>
+            <td>性別：</td>
+            <!-- radio的name值須一致，才能達成選項效果 -->
+            <td><input type="radio" name="sex" value="1" id="sexb">
+                <label for="sexb">男</label>
+                <input type="radio" name="sex" value="0" id="sexg">
+                <label for="sexg">女</label>
+            
+            </td>
+        </tr>
+        <tr>
+            <td>出生日：</td>
+            <td><input type="date" name="birth" id="" placeholder="請輸入生日" min="1900-01-01" max="2020-03-19"></td>
+        </tr>
+        <tr>
+            <td>興趣：</td>
+            <td>
+                <input type="checkbox" name="like[]" value="拍照">
+                <label for="like_1">拍照</label>
+                <input type="checkbox" name="like[]" value="看書" checked>
+                <label for="like_2">看書</label>
+                <input type="checkbox" name="like[]" value="唱歌">
+                <label for="like_3">唱歌</label>
+                <input type="checkbox" name="like[]" value="寫程式">
+                <label for="like_4">寫程式</label>
+                <input type="checkbox" name="like[]" value="逛街">
+                <label for="like_5">逛街</label>
+            </td>
+        </tr>
+        <tr>
+            <td>學歷：</td>
+            <td>
+                <select name="school" id="">
+                    <option value="ssr">博士</option>
+                    <option value="sr">碩士</option>
+                    <option value="s" selected>大學</option>
+                    <option value="r">專科</option>
+                    <option value="n">高中職以下</option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>照片上傳：</td>
+            <td><input type="file" name="pic" id="">請上傳2吋照片(很醜沒人這樣用)</td>
+        </tr>
+        <tr>
+            <td>留言訊息：</td>
+            <td><textarea name="info" id="" cols="30" rows="10" placeholder="太讚了，給個五星好評吧！"></textarea></td>
+        </tr>
+        <tr>
+            <td>聯絡信箱：</td>
+            <td><input type="email" name="mail" id="" placeholder="請輸入email"></td>
+        </tr>
+        <tr>
+            <td>聯絡電話：</td>
+            <td><input type="number" name="num" id="" placeholder="請輸入電話號碼"></td>
+        </tr>
+            
+    </table>
+    <hr>
+    <center>
+        <input type="submit" value="送出" >
+        <input type="reset" value="重置">
+    </center>
+</form> </fieldset>
+</body>
+</html>

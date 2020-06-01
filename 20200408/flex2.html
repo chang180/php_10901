@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-box(彈性盒)</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            /* 父容器 FLEX'S BOX */
+            background: lightgray;
+            display: flex;
+            height: 500px;
+
+            justify-content:flex-start; /* 控制主軸內的item之排列方式*/
+            align-items: flex-start; /* 控制x軸的對齊方式*/
+
+
+            /* flex-flow: ?? ??;  等同於下兩行的設定*/
+            flex-direction: row; /*主軸的方向性為水平或垂直*/
+            flex-wrap: wrap; /*item的排列是否換行*/
+        }
+
+        /* 子項目 flex's item */
+        .red {
+            background: lightpink;
+            height: 100px;
+        }
+
+        .green {
+            background: lightgreen;
+            height: 200px;
+        }
+
+        .blue {
+            background: lightskyblue;
+        }
+
+        .container>div {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+    </div>
+    
+</body>
+
+</html>

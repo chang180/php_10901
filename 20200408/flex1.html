@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-box(彈性盒)</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            background: lightgray;
+            padding: 10px;
+            /* 本次教學重點，設定display為flex之後才能做其他所有設定 */
+            display: flex;
+            /* 副容器設定的高度會統一整行子項目的高度，但仍然各別子項目的設定可變 */
+            height: 200px;
+        }
+
+        .red {
+            background: lightpink;
+        }
+
+        .green {
+            background: lightgreen;
+        }
+
+        .blue {
+            background: lightskyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+
+    </div>
+
+</body>
+
+</html>

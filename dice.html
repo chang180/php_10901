@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Dices</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background: darkseagreen;
+        }
+
+        .dice {
+            width: 200px;
+            height: 200px;
+            padding: 30px;
+            background: linear-gradient(-45deg, #ccc, #fff);
+            -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+        }
+
+        .dot {
+            width: 40px;
+            height: 40px;
+            /* background:#000; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 到第3點就想不出來，去codepen找了答案參考，人家連骰子6面都能組合到一起變成3d骰子，其他還有能骰的，看了心都涼一半 -->
+    <div class="d-flex container-fluid flex-wrap justify-content-center align-items-center">
+        <div class="dice d-flex border rounded-lg shadow justify-content-center m-2">
+            <div class="dot align-self-center bg-danger rounded-circle">&nbsp;</div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            <div class="dot align-self-end bg-dark rounded-circle">&nbsp;</div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            <div class="dot bg-dark rounded-circle align-self-center">&nbsp;</div>
+            <div class="dot align-self-end bg-dark rounded-circle">&nbsp;</div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+            <div class="dot bg-dark rounded-circle align-self-center">&nbsp;</div>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+        </div>
+        <div class="dice d-flex border justify-content-between rounded-lg shadow m-2">
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+                <div class="dot bg-dark rounded-circle">&nbsp;</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+/* .addzone>*{
+    background:#ccc;
+    border:2px solid #aaa;
+    margin-bottom: 5px;
+
+} */
+.row>*{
+    background:#ccc;
+    border:2px solid #aaa;
+    margin-bottom: 5px;
+    min-height: 50px;
+}
+.row{
+    opacity: 1;
+    /* height:100px;
+    background:lightsalmon;
+    border:1px solid #a00; */
+}
