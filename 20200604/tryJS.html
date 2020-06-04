@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!!!</h1>
+    <script>
+        /* 註解方式1 */
+        // aa=100; //註解方式2 
+        // console.log(aa); //要求寫到console的函式(new)
+        // alert(aa); //呼叫提示視窗的函式(old)，由於JS執行優先，網頁會先等這個關掉
+
+        SayHi("JS");
+        aaa();
+
+        function aaa() {
+            console.log("hello!!");
+        }
+
+        function SayHi(name) {
+            console.log(`hello!! ${name}!!, nice to meet U~~~`);
+        }
+
+        word1 = function () { // 結構為函式的變數
+            console.log("hello!!!");
+        }
+        word2 = function () {
+            console.log("world!!!");
+        }
+
+        function say(who) { //負責將接收到的變數做()執行
+            who();
+        }
+        // say 是函式，word1跟word2是變數，who 是函式say內的變數
+
+        say1 = function (name) { //函式型變數內的fn有沒有名字沒差，沒名字的fn我們稱呼為匿名函式
+            return "hi," + name;
+        }
+
+        say2 = function () {// 這樣算執行一個指令，所以變數沒有暫存任何東西
+            console.log("this is say2");
+            return "Done";
+        }();
+        //say2 會是一個匿名函式執行後的回傳(文字), 因此say2 是一個文字變數(不是函式變數)
+
+        //()()表示函式()與執行();
+        (function (fun) {
+            console.log("this is no name fn" + fun);
+        })(aaa); //直接執行
+
+
+        //匿名函式 & 直接執行，注意若要這麼做，那麼匿名函式需要先包起來先處理（表示為函式內容物）
+        (function aaa() {
+            console.log("this is aaa 直接執行")
+        })();  //直接執行
+
+        // 函式 Moudle 結構
+
+        function MyMod() { //物件型的函式
+            function dogSay() {
+                console.log("汪！");
+            }
+            function catSay() {
+                console.log("喵!");
+            }
+
+            //回傳一個物件
+            return {
+                dog: dogSay,
+                cat: catSay,
+                god: "YA!"
+            };
+        }
+
+        // 物件型變數的宣告
+        yee = {
+            a: 1, b: 2
+        }
+
+        // this 是指目前的位置(物件)
+        function showThis() {
+            //每個物件內的變數都是獨立的，可用this指定，且與其他非本物件的同名變數不影響
+            console.log(this.MyCard);
+        }
+
+        MyCard = "紅心A";
+
+        room1 = {
+            MyCard: "黑桃A",
+            show: showThis,
+            room2: { //巢狀式物件
+                MyCard: "方塊A",
+                gold5: showThis,
+
+            }
+        };
+
+        //ES6 多了可指定變數的預設值
+        function num(a = 100) {
+            console.log(a);
+        }
+
+        // ********************變數*************************
+        // var | (ES6=>) let , const
+
+        myVar = "臨時變數";
+
+        var myVar2 = "全域變數";
+
+        let myVar3 = "區域內的獨立變數";
+
+        const myVar4 = "常態變數";
+
+
+        var a = 100;
+        function test() {
+            // var b=200; //若不宣告就會拿外面的來用
+            console.log(a, b);
+        }
+        const b = 300;
+        // const b=400; //常態變數宣告後就不可再變更
+
+        let c = 999;
+
+        if (true) {
+            let b = 400; //let 只會獨立在{}世界內使用，且可不影響{}外的世界
+
+            let c = 9;
+            c = 8; //不能再用let重新宣告，但可改值。
+            console.log(b, c);
+        }
+
+        console.log(b, c);
+
+        d = 123;
+
+        function testvar() {
+            console.log(d);
+        }
+
+        // delete d; //沒正式宣告的變數才會被刪掉
+        // console.log(d);
+
+
+        let e = 20, f = 30, g = 40; //可連續宣告變數, 很多場合都會出現這種方式，代表多筆參數設定
+
+        for (let i = 0, j = 10; i < 10; i++, j--) {
+            console.log('i=', i, ',j=', j);
+        }
+
+        var isNum = 3;
+        var isNull = null;
+        var isUndefined;
+        var isEmpty = ""
+
+        var isBBB = function () {
+            alert(23);
+        }
+
+        isBBB = null;
+
+//show("loki");
+// console.log("hi, Loki");
+// console.log(say1("AAA"));
+
+    </script>
+
+</body>
+
+</html>
