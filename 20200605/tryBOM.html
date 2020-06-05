@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>BOM DEMO PAGE</h1>
+    <script>
+
+    
+    // alert("你個網頁賊！");
+    // let bln = confirm("你今天吃得飽嗎？");
+    
+    // alert("the bln is "+bln);
+    // let msg=(bln)?"還行":"還有點餓";
+    // alert(msg);
+    // alert(bln) ? "還行" : "還有點餓";
+    
+    // let ans=prompt("請輸入密碼：");
+    let ans2; //ans2 is null
+
+    // if(ans){ //if(null) is false
+    //     // console.log(1);
+    //     alert("你確定這個"+ans+"對嗎？");
+    // }else {
+    //     // console.log(0);
+    //     alert("輸入點東西吧~~~");
+    // }
+
+// var sec=3*1000;
+// function fn(){
+//     console.log(123);
+// }
+// var stop=setTimeout(fn,sec);
+
+//setTimeout的參數必須為函數，不能直接丟BOM進去
+var stop=setTimeout(function(){
+    console.log(456);
+},3000)
+
+
+// clearTimeout(stop)    ;
+
+
+    </script>
+</body>
+
+</html>
