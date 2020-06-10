@@ -18,48 +18,54 @@
 
 <body>
     <div class="container d-flex flex-column">
-        <div class="square text-center d-flex justify-content-center align-items-center border display-1 m-3" id="square"></div>
+        <div class="square text-center d-flex justify-content-center align-items-center border display-1 m-3"
+            id="square"></div>
         <div class="btn-group col">
             <button id="rr" class="btn m-1 btn-danger col-1" onclick="red()">R</button>
             <button id="gg" class="btn m-1 btn-success col-1" onclick="green()">G</button>
             <button id="bb" class="btn m-1 btn-primary col-1" onclick="blue()">B</button>
         </div>
         <div class="btn-group col">
+            <button class="btn btn-warning col-1 m-1" id="add" onclick="add()">+</button>
+            <button class="btn btn-secondary col-1 m-1" id="minus" onclick="minus()">-</button>
             <button class="btn btn-info col-1 m-1" id="random" onclick="window.location.reload();">?</button>
         </div>
     </div>
     <script>
-        let r = Math.ceil(Math.random()*255);
-        let g = Math.ceil(Math.random()*255);
-        let b = Math.ceil(Math.random()*255);
+        let r = Math.ceil(Math.random() * 255);
+        let g = Math.ceil(Math.random() * 255);
+        let b = Math.ceil(Math.random() * 255);
 
-        let rr=(255-r).toString(16);
-        if(rr.length==1) rr="0"+rr;
-        let rg=(255-g).toString(16);
-        if(rg.length==1) rg="0"+rg;
-        let rb=(255-b).toString(16);
-        if(rb.length==1) rb="0"+rb;
+        let rr = (255 - r).toString(16);
+        if (rr.length == 1) rr = "0" + rr;
+        let rg = (255 - g).toString(16);
+        if (rg.length == 1) rg = "0" + rg;
+        let rb = (255 - b).toString(16);
+        if (rb.length == 1) rb = "0" + rb;
 
         // console.log(`${rr},${rg},${rb}`);
-        
-        r=r.toString(16).toUpperCase();
-        if(r.length==1) r="0"+r;
-        g=g.toString(16).toUpperCase();
-        if(g.length==1) g="0"+g;
-        b=b.toString(16).toUpperCase();
-        if(b.length==1) b="0"+b;
+
+        r = r.toString(16).toUpperCase();
+        if (r.length == 1) r = "0" + r;
+        g = g.toString(16).toUpperCase();
+        if (g.length == 1) g = "0" + g;
+        b = b.toString(16).toUpperCase();
+        if (b.length == 1) b = "0" + b;
         // console.log(`${r},${g},${b}`);
-        
+
         function red() {
             r = Math.floor(prompt("請輸入紅值：(0~255)", "0"));
+            rr = (255 - r).toString(16);
+            if (rr.length == 1) rr = "0" + rr;
             // console.log(r);
             if (r > 255 || r < 0 || isNaN(r)) red();
             else {
                 r = r.toString(16).toUpperCase();
-                if(r.length==1) r="0"+r;
+                if (r.length == 1) r = "0" + r;
                 console.log(r);
                 document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
-                document.getElementById("square").textContent=`${r}${g}${b}`;
+                document.getElementById("square").textContent = `${r}${g}${b}`;
+                document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
                 // console.log(`${r}${g}${b}`);
             }
             return;
@@ -67,12 +73,15 @@
 
         function green() {
             g = Math.floor(prompt("請輸入綠值：(0~255)", "0"));
+            rg = (255 - g).toString(16);
+            if (rg.length == 1) rg = "0" + rg;
             if (g > 255 || g < 0 || isNaN(g)) green();
             else {
                 g = g.toString(16).toUpperCase();
-                if(g.length==1) g="0"+g;
+                if (g.length == 1) g = "0" + g;
                 document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
-                document.getElementById("square").textContent=`${r}${g}${b}`;
+                document.getElementById("square").textContent = `${r}${g}${b}`;
+                document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
                 // console.log(`${r}${g}${b}`);
             }
             return;
@@ -80,21 +89,85 @@
 
         function blue() {
             b = Math.floor(prompt("請輸入藍值：(0~255)", "0"));
+            rb = (255 - b).toString(16);
+            if (rb.length == 1) rb = "0" + rb;
             if (b > 255 || b < 0 || isNaN(b)) blue();
             else {
                 b = b.toString(16).toUpperCase();
-                if(b.length==1) b="0"+b;
+                if (b.length == 1) b = "0" + b;
                 document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
-                document.getElementById("square").textContent=`${r}${g}${b}`;
+                document.getElementById("square").textContent = `${r}${g}${b}`;
+                document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
                 // console.log(`${r}${g}${b}`);
             }
             return;
         }
         // console.log(`${r}${g}${b}`);
 
+        function add() {
+            r = parseInt(r, 16);
+            r++;
+            if (r > 255) r = 255;
+            rr = (255 - r).toString(16);
+            r = r.toString(16).toUpperCase();
+            if (rr.length == 1) rr = "0" + rr;
+
+
+            g = parseInt(g, 16);
+            g++;
+            if (g > 255) g = 255;
+            rg = (255 - g).toString(16);
+            g = g.toString(16).toUpperCase();
+            if (rg.length == 1) rg = "0" + rg;
+
+
+            b = parseInt(b, 16);
+            b++;
+            if (b > 255) b = 255;
+            rb = (255 - b).toString(16);
+            b = b.toString(16).toUpperCase();
+            if (rb.length == 1) rb = "0" + rb;
+
+            document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
+            document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
+            document.getElementById("square").textContent = `${r}${g}${b}`;
+
+            return;
+        }
+        function minus() {
+            r = parseInt(r, 16);
+            r--;
+            if (r > 255) r = 255;
+            rr = (255 - r).toString(16);
+            r = r.toString(16).toUpperCase();
+            if (rr.length == 1) rr = "0" + rr;
+
+
+            g = parseInt(g, 16);
+            g--;
+            if (g > 255) g = 255;
+            rg = (255 - g).toString(16);
+            g = g.toString(16).toUpperCase();
+            if (rg.length == 1) rg = "0" + rg;
+
+
+            b = parseInt(b, 16);
+            b--;
+            if (b > 255) b = 255;
+            rb = (255 - b).toString(16);
+            b = b.toString(16).toUpperCase();
+            if (rb.length == 1) rb = "0" + rb;
+
+            document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
+            document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
+            document.getElementById("square").textContent = `${r}${g}${b}`;
+
+            return;
+        }
+
         document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
         document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
-        document.getElementById("square").textContent=`${r}${g}${b}`;
+        document.getElementById("square").textContent = `${r}${g}${b}`;
 
 
     </script>
