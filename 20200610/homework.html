@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .square {
+            height: 70vh;
+            width: 50vw;
+            /* background: red; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex flex-column">
+        <div class="square text-center d-flex justify-content-center align-items-center border display-1 m-3" id="square"></div>
+        <div class="btn-group col">
+            <button id="rr" class="btn m-1 btn-danger col-1" onclick="red()">R</button>
+            <button id="gg" class="btn m-1 btn-success col-1" onclick="green()">G</button>
+            <button id="bb" class="btn m-1 btn-primary col-1" onclick="blue()">B</button>
+        </div>
+        <div class="btn-group col">
+            <button class="btn btn-info col-1 m-1" id="random" onclick="window.location.reload();">?</button>
+        </div>
+    </div>
+    <script>
+        let r = Math.ceil(Math.random()*255);
+        let g = Math.ceil(Math.random()*255);
+        let b = Math.ceil(Math.random()*255);
+
+        let rr=(255-r).toString(16);
+        if(rr.length==1) rr="0"+rr;
+        let rg=(255-g).toString(16);
+        if(rg.length==1) rg="0"+rg;
+        let rb=(255-b).toString(16);
+        if(rb.length==1) rb="0"+rb;
+
+        // console.log(`${rr},${rg},${rb}`);
+        
+        r=r.toString(16).toUpperCase();
+        if(r.length==1) r="0"+r;
+        g=g.toString(16).toUpperCase();
+        if(g.length==1) g="0"+g;
+        b=b.toString(16).toUpperCase();
+        if(b.length==1) b="0"+b;
+        // console.log(`${r},${g},${b}`);
+        
+        function red() {
+            r = Math.floor(prompt("請輸入紅值：(0~255)", "0"));
+            // console.log(r);
+            if (r > 255 || r < 0 || isNaN(r)) red();
+            else {
+                r = r.toString(16).toUpperCase();
+                if(r.length==1) r="0"+r;
+                console.log(r);
+                document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
+                document.getElementById("square").textContent=`${r}${g}${b}`;
+                // console.log(`${r}${g}${b}`);
+            }
+            return;
+        }
+
+        function green() {
+            g = Math.floor(prompt("請輸入綠值：(0~255)", "0"));
+            if (g > 255 || g < 0 || isNaN(g)) green();
+            else {
+                g = g.toString(16).toUpperCase();
+                if(g.length==1) g="0"+r;
+                document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
+                document.getElementById("square").textContent=`${r}${g}${b}`;
+                // console.log(`${r}${g}${b}`);
+            }
+            return;
+        }
+
+        function blue() {
+            b = Math.floor(prompt("請輸入藍值：(0~255)", "0"));
+            if (b > 255 || b < 0 || isNaN(b)) blue();
+            else {
+                b = b.toString(16).toUpperCase();
+                if(b.length==1) b="0"+r;
+                document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
+                document.getElementById("square").textContent=`${r}${g}${b}`;
+                // console.log(`${r}${g}${b}`);
+            }
+            return;
+        }
+        // console.log(`${r}${g}${b}`);
+
+        document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
+        document.getElementById("square").style.color = `#${rr}${rg}${rb}`;
+        document.getElementById("square").textContent=`${r}${g}${b}`;
+
+
+    </script>
+
+
+</body>
+
+</html>
