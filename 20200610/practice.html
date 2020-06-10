@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    .square {
+        height: 100px;
+        width: 100px;
+        background: red;
+        /* border-radius:50%; */
+    }
+    .circle {
+        height: 100px;
+        width: 100px;
+        background: red;
+        border-radius:50%;
+    }
+
+    .triangle {
+        width: 0px;
+        height: 0px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+        
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div id="shape" class="square color"></div>
+        <hr>
+        <button id="squ" class="btn btn-outline-dark">正方形</button>
+        <button id="cir" class="btn btn-outline-dark">圓形</button>
+        <button id="tri" class="btn btn-outline-dark">三角形</button>
+        <hr>
+        <label for="text">Color Code:</label>
+        <input type="text" id="color" onchange="color(this)">
+
+    </div>
+
+    <script>
+
+
+        document.getElementById("cir").onclick = circle;
+        document.getElementById("squ").onclick = square;
+        document.getElementById("tri").onclick = triangle;
+
+
+        function circle() {
+            document.getElementById("shape").setAttribute("class","circle");
+        }
+        function square() {
+            document.getElementById("shape").setAttribute("class","square");
+        }
+        function triangle() {
+            document.getElementById("shape").setAttribute("class","triangle");
+        }
+        function color(cc) {
+            if (shape.style.backgroundColor!="red")
+            {
+                shape.style.borderBottom=`100px solid ${cc.value}`;
+                shape.style.backgroundColor="";
+            }
+            else  shape.style.background=cc.value;
+            // console.log(document.getElementById("shape"));
+            // shape.style.borderBottom=`100px solid ${cc.value}`;
+            // document.getElementById("quare").setAttribute("background",cc.value);
+// square.style.color=cc.value;
+            // console.log(cc);
+            // console.log(cc.value);
+        }
+
+// document.getElementById("shape").setAttribute("color",document.getElementById("color"));
+
+
+    </script>
+
+
+</body>
+
+</html>

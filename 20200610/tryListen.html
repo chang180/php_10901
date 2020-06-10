@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listen</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <input type="button" value="try me" id="ock" class="btn btn-primary m-2">
+
+
+
+    <script>
+// 監聽事件指定
+
+let btn=document.getElementById("ock");
+
+btn.addEventListener("click",function(){
+    alert("It's clicked by listener.")
+});
+
+// 監聽事件可同時做同樣的指令，先後順序有差而已
+btn.addEventListener("mouseover",todo);
+btn.addEventListener("mouseover",tosay);
+// 由於js會在網頁執行前先執行過，所以會只剩1個事件
+// btn.removeEventListener("mouseover",todo);
+// setTimeout(() => {
+//     btn.removeEventListener("mouseover",todo);
+// }, 10000);
+setTimeout(clearLis,10000);
+
+
+function todo(){
+    alert("It's hover in by listener");
+}
+function tosay(){
+    alert("You can do more function");
+}
+
+
+function clearLis(){
+    btn.removeEventListener("mouseover",todo);
+    console.log("removed");
+}
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body id="gg">
+
+    <h1 id="title" class="display-1">DOM DEMO PAGE</h1>
+<ul id="demo">
+    <li class="list">Apple</li>
+    <li class="list">Banana</li>
+</ul>
+
+<script>
+
+let food = document.getElementsByClassName("list");
+console.log(food);
+document.write(food[0]);
+food[0].innerHTML="<strong>AAA</strong>";
+
+let food2=document.getElementsByClassName("li");
+console.log(food2);
+document.write(food2[1]);
+food2[1].innerHTML="<strong>AAA</strong>";
+
+
+
+
+    // let mytitle=document.getElementById("title");
+    // mytitle.innerHTML="Hello World1"; //有HTML就用這個
+// mytitle.textContent="Hello World2"; //只有文字就用這個
+
+
+// let myul=document.getElementById("demo");
+
+// myul.innerHTML="<li>AAA</li><li><BBB></li>"; //調整 HTML
+
+// myul.textContent="<li>CCC</li><li>DDD</li>"; //調整text
+
+// myul.innerText="只有文字，此寫法發明於IE8但firebox不支援，邁議別用，請用textContent";
+
+
+
+
+
+
+
+
+</script>
+
+    
+
+</body>
+
+</html>

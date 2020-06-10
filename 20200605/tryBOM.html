@@ -46,6 +46,18 @@ var stop=setTimeout(function(){
 // clearTimeout(stop)    ;
 
 
+
+let i=0; //做為共用的變數，才能每次進行變化
+function reply(){
+    console.log(i);
+    i++;
+    if(i==5) clearInterval(timestop);
+}
+let timestop=setInterval(reply,1000);
+
+
+
+
     </script>
 </body>
 
