@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+
+<!-- 當點擊p元素時，執行fn add() -->
+<p id="demo">點這裡</p> 
+<button onclick="add()">按這裡</button>
+
+<script>
+    
+    // document.getElementById("list").removeChild(document.getElementById("list").children[2])
+    // 可寫成如下函式方式：
+    document.getElementById("list").children[2].remove();
+    
+    add=()=>{
+        let btn=document.createElement("button"); //create
+        btn.textContent="AAA"; //set text
+        document.body.appendChild(btn); //input to html
+    }
+
+   document.getElementById("demo").onclick=add; //不需執行，函式已宣告，放入函式名稱即可
+//    document.getElementById("demo").onclick=add();
+//    寫成上面兩行會變成執行以下：
+//    document.getElementById("demo").onclick=null;
+//    add();
+
+// 若要寫成匿名函式，則應寫成如下：
+//    document.getElementById("demo").onclick=()=>{add();};
+
+// 也可用設定屬性的方式：
+// document.getElementById("demo").setAttribute("onclick","add()");
+
+// 也可以用增加事件監聽的方式：
+// document.getElementById("demo").addEventListener("click",add);
+
+
+
+
+
+</script>
+
+<!-- add here -->
+</body>
+
+</html>

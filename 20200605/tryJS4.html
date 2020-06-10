@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陣列與物件!!</title>
+</head>
+
+<body>
+    <h1>陣列與物件!!</h1>
+    <script>
+        let ary = new Array(); //陣列必須先宣告
+        // let ary=[];
+
+
+        for (let i = 0; i < 11; i++) {
+            ary.push("a" + i);
+        }
+
+        // 該死的ES6箭頭函式，作用類似匿名函式
+        ary.forEach((s1, s2) => {
+            console.log(s1, s2);
+        });
+
+
+        // function showary(val,item,data){
+        //     console.log(`item=${item},value=${val},data=${data}`);
+        // }
+
+        // function showary(s1,s2){ colsole.log(s1)};
+
+        ary.forEach(function (s1, s2) {
+            console.log(s1, s2);
+        });
+
+        // 匿名函式：  function (s1){...};
+        // 箭頭函式：  (s1) => {...};
+
+        // 差別：
+        // function(this){...}
+        //不能使用：(this) => {... };
+
+        console.log("-------------------------------------");
+
+        // for-of 算是一種陣列抽取的方法
+        for (let i of ary) {
+            console.log(i);
+        }
+        console.log("-------------------------------------");
+
+        //filter 過濾，它可以幫你對一個陣列A進行條件return，最後集結成一個新陣列
+
+        ary[50] = 100;
+
+        //QA: 請幫忙將陣列的無效陣列格子移除
+        function clearNull(val) {
+            // if(val!=null) return val;
+            return (val != null);
+        }
+        ary = ary.filter(clearNull);
+
+        // 以上可寫成一行：
+        // ary=ary.filter((val)=>{return val!=null});
+
+        // 物件宣告方式跟陣列差不多
+        let obj = {
+            cat: "加菲貓",
+            "dog": "史努比",  //索引的引號可加可不加也可混用
+            other:{ //物件也有多重結構
+                horse:"彩虹小馬",
+                mouse:"米老鼠",
+            }
+        }; //json格式
+// console.log(obj);
+
+
+//for-in 提供value跟key值，所以會比for-of還常用
+//就是一種遍歷，適合obj使用
+for (const key in obj) {
+    console.log(key,obj[key]);
+}
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

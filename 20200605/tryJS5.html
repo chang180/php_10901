@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用到的物件函式</title>
+</head>
+
+<body>
+    <h1>常用到的物件函式</h1>
+    <script>
+        var data = [123, 456, 789]
+        // console.log(data.length);
+
+        var txt = "hello world";
+        // console.log(txt.length);
+
+        // console.log(data.join(","));
+
+        data.forEach((val) => {
+            // console.log(val);
+        });
+
+        for (const val of data) {
+            // console.log(val);
+        }
+
+        for (i = 0; i < data.length; i++) {
+            // console.log(data[i]);
+        }
+
+        a = '5';
+        b = 100;
+        console.log(a + 3 + b); //字串加數字，仍然是字串
+
+        console.log(a + (3 + b));
+
+        //8100
+        console.log(String(Number(a) + 3) + b);//type 轉換
+
+
+        //Math
+        Math.round(6.4999);//四捨五入至整數
+
+        //0~10
+        var n = Math.floor(Math.random() * 11);
+        console.log(n);
+
+        //40~80
+        var m = Math.floor(Math.random() * 41 + 40);
+        console.log(m);
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        console.log("----------------------------------");
+
+        var time = new Date(); //get obj
+        var time_str = Date(); //get str
+
+        var cTime1 = new Date(2020, 11, 31, 23, 59, 59, 999); //月份是從0開始
+        var cTime2 = new Date("2020-12-31T23:59:59"); //ISO表示法
+
+        var jsn = { //json物件示範，以後會常常用到
+            cat: "mini",
+            dog: "lucky",
+        }
+
+        time.getTime();//取得時間戮
+        time.getFullYear(); //西元年
+        time.getMonth();//月0~11
+        time.getDay();//日
+        time.getDay();//星期幾
+        time.getUTCDay();
+        time.getHours();//時
+        time.getMinutes();//分
+        time.getSeconds();//秒
+
+        var beto = (cTime2.getTime() - time.getTime());
+        // console.log(beto);
+        //已知beto=X秒，試著印出x天y時z分k秒
+
+        let day = 24 * 60 * 60 * 1000;
+        let x = Math.floor(beto / day);
+
+        let y = Math.floor((beto % day) / 1000 / 60 / 60 % 24);
+
+        let z = Math.floor((beto % day) / 1000 / 60 % 60);
+        let k = Math.floor((beto % day) / 1000 % 60);
+
+        document.write(`距離今年跨年只剩下${x}天${y}時${z}分${k}秒`);
+        console.log("----------------------------------");
+
+        var now = new Date();
+        var week=["日曜日","月曜日","水曜日","火曜日","木曜日","金曜日","土曜日"];
+        // var tt=now.getFullYear();
+        // tt+=3;
+        // now.setFullYear(tt);
+        // 找出三年後是星期幾
+        now.setFullYear(now.getFullYear()+3);
+        console.log(week[now.getDay()]);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!!!</h1>
+    <script>
+        // if (condition) {
+        //     //codeA
+        // } else {
+        //     //codeB
+        // }
+
+        // if (condition) {
+        //     //codeA
+        // } else if (condition 2) {
+        //     //codeB
+        // }else {
+        //     //codeC
+        // }
+
+        var man = false;
+        if (man) console.log("挖你好帥");
+        else console.log("東踏取蜜");
+
+
+        let height = 158, money = 50, face = 0;
+        if (height > 170 && money > 80 && face) console.log("100分");
+
+        else
+            if (height > 170 || money > 80 || face) console.log("60~99分");
+
+            else console.log("0~59分");
+
+        let day = 4;
+
+        console.log(`today is ${day < 6 ? "workday" : "holiday"}.`);
+
+        // switch(key){
+        //     case value:
+
+        //     break;
+
+        //     default:
+
+        //     break;
+        // }
+
+        let lang = "us";
+        switch (lang) {
+            case "tw":
+                console.log("我喜歡你");
+                break;
+            case "jp":
+                console.log("愛してる");
+                break;
+            case "hk":
+                console.log("我好鐘意黎阿");
+                break;
+            case "us":
+                console.log("I love U");
+                break;
+            default:
+                console.log("...")
+        }
+
+        if (lang == "tw") console.log("我喜歡你");
+        else if (lang == "jp") console.log("愛してる");
+        else if (lang == "hk") console.log("我好鐘意黎阿");
+        else if (lang == "us") console.log("I love U");
+        else console.log("...");
+
+        let str = "";
+        for (let index = 1; index <= 10; index += 3) console.log(index);
+
+        //客家九九乘法表
+        // for (let i = 2; i <= 9; i++)
+        // for (let j = 1; j <= 9; j++)
+        // console.log(`${i}*${j}=` + (i * j));
+
+        // 單迴圈九九乘法表
+        // for (let i = 2, j = 1; i <= 9; j++) {
+        //     if (j == 10) {
+        //         i++;
+        //         j = 1
+        //     }
+        //     if (i == 10) break;
+        //     console.log(`${i}*${j}=` + (i * j));
+        // }
+
+        // while迴圈九九乘法表
+        let i = 2;
+        while (i <= 9) {
+            let j = 0;
+            while (j < 9) {
+                j++;
+                console.log(`${i}*${j}=` + (i * j));
+            }
+            i++;
+        }
+
+        let msg = "", k = 0;
+        do {
+            //先後順序不同會造成結果不同
+            k++;
+            msg += k;
+        } while (k < 5);
+        console.log(msg);
+
+        //continue是跳過當前迴圈，break會直接把程式停止。
+        var m = 0;
+        while (m < 10) {
+            m++;
+            if (m == 5) continue;
+            if (m == 8) break;
+            console.log(m);
+        }
+
+        function parrot(say) {
+            console.log("阿~~~~");
+            if (say == "mute") return;
+            console.log(say);
+        }
+
+        
+
+
+    </script>
+
+</body>
+
+</html>

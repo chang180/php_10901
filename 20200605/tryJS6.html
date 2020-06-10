@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write it!!</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <p id="username">123</p>
+    <script>
+        window.onload=function() //等待borwser解析完document後，才執行某函式
+        {wt();
+        }
+        // wt();
+    </script>
+
+    <script>
+
+//js的主要功能，在已產出的HTML上進行DOM的修改
+
+function wt(){
+
+    document.getElementById("username").textContent="LOKI";
+}
+
+
+        // wt = () => document.write("<h1>我愛JS</h1>"); //建議在DOC製造過程中宣告
+
+        //如果在load完成後執行，會當做再一次進行DOM的製造產生。
+        
+    </script>
+
+
+
+
+</body>
+
+</html>
