@@ -70,7 +70,7 @@
             if (g > 255 || g < 0 || isNaN(g)) green();
             else {
                 g = g.toString(16).toUpperCase();
-                if(g.length==1) g="0"+r;
+                if(g.length==1) g="0"+g;
                 document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
                 document.getElementById("square").textContent=`${r}${g}${b}`;
                 // console.log(`${r}${g}${b}`);
@@ -83,7 +83,7 @@
             if (b > 255 || b < 0 || isNaN(b)) blue();
             else {
                 b = b.toString(16).toUpperCase();
-                if(b.length==1) b="0"+r;
+                if(b.length==1) b="0"+b;
                 document.getElementById("square").style.backgroundColor = `#${r}${g}${b}`;
                 document.getElementById("square").textContent=`${r}${g}${b}`;
                 // console.log(`${r}${g}${b}`);
