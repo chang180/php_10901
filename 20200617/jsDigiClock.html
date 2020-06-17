@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Clock</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+    body {
+        margin: 0;
+        background: #333;
+    }
+
+    .clock1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 740px;
+        height: 100px;
+        margin: 20vh auto;
+    }
+
+    .ck {
+        /* margin: 5px; */
+        height: 100px;
+        width: 100px;
+        overflow: hidden;
+
+    }
+
+    .p img{
+        /* margin: 5px; */
+        height: 100px;
+        width: 50px;
+        overflow: hidden;
+        left: -950px;
+
+    }
+
+
+    #ck1,
+    #ck2,
+    #ck3,
+    #ck4,
+    #ck5,
+    #ck6
+        {
+        position: relative;
+    }
+</style>
+
+<body>
+
+    <div class="container clock1">
+        <div id="ck1" class="ck"><img src="digit.jpg" id="h1"></div>
+        <div id="ck2" class="ck"><img src="digit.jpg" id="h2"></div>
+        <div class="p"><img src="digit.jpg"></div>
+
+        <div id="ck3" class="ck"><img src="digit.jpg" id="m1"></div>
+        <div id="ck4" class="ck"><img src="digit.jpg" id="m2"></div>
+        <div class="p"><img src="digit.jpg"></div>
+        <div id="ck5" class="ck"><img src="digit.jpg" id="s1"></div>
+        <div id="ck6" class="ck"><img src="digit.jpg" id="s2"></div>
+    </div>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

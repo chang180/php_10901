@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .num {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .middle {
+      width: 50px;
+      height: 100px;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    #m1,
+    #m2,
+    #h1,
+    #h2,
+    #s1,
+    #s2,
+    #p1,
+    #p2 {
+      position: relative;
+    }
+
+    #p1>img,
+    #p2>img {
+      position: absolute;
+      left: -1000px;
+      animation: blink 1s infinite;
+    }
+
+    #h1img,
+    #h2img,
+    #m1img,
+    #m2img,
+    #s1img,
+    #s2img {
+      position: absolute;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="num" id="h1"><img src="diginumber.jpg" id="h1img"></div>
+  <div class="num" id="h2"><img src="diginumber.jpg" id="h2img"></div>
+  <div class="middle" id="p1"><img src="diginumber.jpg"></div>
+  <div class="num" id="m1"><img src="diginumber.jpg" id="m1img"></div>
+  <div class="num" id="m2"><img src="diginumber.jpg" id="m2img"></div>
+  <div class="middle" id="p2"><img src="diginumber.jpg"></div>
+  <div class="num" id="s1"><img src="diginumber.jpg" id="s1img"></div>
+  <div class="num" id="s2"><img src="diginumber.jpg" id="s2img"></div>
+</body>
+<script>
+
+  setInterval(function DigiClock() {
+    let theTime = new Date();
+    let timeArray = theTime.toTimeString().split(" ")[0].split(":"); //將cookie的字串分割成一組陣列
+    document.querySelector("#h1img").style.left = "-" + (timeArray[0].substr(0, 1) - 1) * 100 + "px";
+    document.querySelector("#h2img").style.left = "-" + (timeArray[0].substr(1, 1) - 1) * 100 + "px";
+    document.querySelector("#m1img").style.left = "-" + (timeArray[1].substr(0, 1) - 1) * 100 + "px";
+    document.querySelector("#m2img").style.left = "-" + (timeArray[1].substr(1, 1) - 1) * 100 + "px";
+    document.querySelector("#s1img").style.left = "-" + (timeArray[2].substr(0, 1) - 1) * 100 + "px";
+    document.querySelector("#s2img").style.left = "-" + (timeArray[2].substr(1, 1) - 1) * 100 + "px";
+  }, 0);
+</script>
+
+</html>

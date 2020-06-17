@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      margin: 0px;
+    }
+
+    .content {
+      margin: auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    .myFull {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: #dfe6e977;
+    }
+
+    .myContent {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .window-close {
+      position: fixed;
+      right: -6.5%;
+      top: -5.5%;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/65952ca494.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- 廣告 -->
+  <div class="myFull" id="myFull">
+    <div class="myContent">
+      <img src="https://picsum.photos/500/500/?random=1" id="myPic">
+      <i class="fas fa-window-close window-close fa-2x"></i>
+    </div>
+  </div>
+
+  <!-- 主題 -->
+  <div class="main">
+    <iframe class="content" src="https://www.youtube.com/embed/xAzVbLuQSoE" frameborder="0"
+      allow="accelerometer; auto; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+
+
+  <script>
+
+    document.querySelector(".myFull").addEventListener('click', windowClose);
+    function windowClose() {
+      var theFull = document.querySelector(".myFull");
+      theFull.style.display = "none";
+    }
+
+    document.querySelector("#myPic").addEventListener('click', adgoto);
+    function adgoto() {
+      open("https://www.google.com", "_blank"); //預設不寫開啟方式就是_blank。
+    }
+
+
+    // let dd = new Date();
+    // lifetime = 1000;
+    // dd.setTime(dd.getTime() + lifetime * 5); //add 10 sec save to time's obj
+    // document.cookie = "Jim = 666; expires =" + dd.toUTCString();
+
+
+
+    function findCookie(name) {
+      // let ckarray = document.cookie.split("; "); //將cookie的字串分割成一組陣列
+      // let ckget = ckarray.find((res) => {
+      //   return (name + "=" === res.substr(0, name.length + 1));
+      // });
+      let ckget = document.cookie.split("; ").find(res => name + "=" === res.substr(0, name.length + 1));
+      return ckget;
+    }
+
+    let ckeat = findCookie("adWatch");
+    if (!ckeat) { //已看過廣告。，移除該元素
+      let end = new Date();
+      end.setHours(23), end.setMinutes(59), end.setSeconds(59);
+      // console.log(end);
+      document.cookie = "adWatch=yes;expires=" + end.toUTCString();
+    } else { //已看過廣告的訪客
+      console.log("你已經看過廣告了");
+      document.getElementsByClassName("myFull")[0].remove();
+    }
+  </script>
+</body>
+
+
+</html>

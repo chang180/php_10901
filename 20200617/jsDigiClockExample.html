@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+    body {
+        background: #222;
+        margin: 0;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    #clock1 {
+        width: 740px;
+        height: 100px;
+        background: rgba(88, 45, 98, 0.5);
+        margin: 20vh auto;
+        padding: 10px;
+        display: flex;
+    }
+
+    .ck {
+        display: inline-flex;
+    }
+
+    .c1,
+    .c2,
+    .c3,
+    .c4,
+    .c5,
+    .c6,
+    .c7,
+    .c8,
+    .c9,
+    .c0 {
+        width: 100px;
+        height: 100px;
+        background: url("digit.jpg");
+        display: inline-block;
+    }
+
+    .cc {
+        width: 50px;
+        height: 100px;
+        background: url("digit.jpg");
+        background-position: 50px;
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .c1 {
+        background-position: 0px;
+    }
+
+    .c2 {
+        background-position: -100px;
+    }
+
+    .c3 {
+        background-position: -200px;
+    }
+
+    .c4 {
+        background-position: -300px;
+    }
+
+    .c5 {
+        background-position: -400px;
+    }
+
+    .c6 {
+        background-position: -500px;
+    }
+
+    .c7 {
+        background-position: -600px;
+    }
+
+    .c8 {
+        background-position: -700px;
+    }
+
+    .c9 {
+        background-position: -800px;
+    }
+
+    .c0 {
+        background-position: -900px;
+    }
+
+    /* 第二組 */
+
+    .clock2 {
+        margin: 0 auto;
+        width: 600px;
+        height: 300px;
+        background: #eee;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .clock2 #time {
+        font-size: 6rem;
+        margin: 0;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .clock2 #date {
+        font-size: 3rem;
+        margin: 0;
+        font-family: 'Balsamiq Sans', cursive;
+    }
+</style>
+
+<body>
+    <h1>第一組(圖形式)</h1>
+    <div id="clock1">
+        <div class="ck">
+            <div id="ck1" class="c1"></div>
+            <div id="ck2" class="c2"></div>
+        </div>
+        <div class="cc"></div>
+        <div class="ck">
+            <div id="ck3" class="c3"></div>
+            <div id="ck4" class="c4"></div>
+        </div>
+        <div class="cc"></div>
+        <div class="ck">
+            <div id="ck5" class="c5"></div>
+            <div id="ck6" class="c6"></div>
+        </div>
+    </div>
+
+    <script>
+        function retime() {
+            setTimeout(retime, 1000);
+            let nt = new Date();
+            let n_hour = nt.getHours(), n_min = nt.getMinutes(), n_sec = nt.getSeconds();
+            // console.log(n_hour, n_min, n_sec);
+
+            //個位數
+            let n_hourT = n_hour % 10;
+            let n_minT = n_min % 10;
+            let n_secT = n_sec % 10;
+
+            //十位數
+            let n_hourX = Math.floor(n_hour / 10);
+            let n_minX = Math.floor(n_min / 10);
+            let n_secX = Math.floor(n_sec / 10);
+
+            document.getElementById("ck1").className = "c" + n_hourX;
+            document.getElementById("ck2").className = "c" + n_hourT;
+            document.getElementById("ck3").className = "c" + n_minX;
+            document.getElementById("ck4").className = "c" + n_minT;
+            document.getElementById("ck5").className = "c" + n_secX;
+            document.getElementById("ck6").className = "c" + n_secT;
+
+            document.getElementsByClassName("cc")[0].style.opacity = 1;
+            document.getElementsByClassName("cc")[1].style.opacity = 1;
+
+            setTimeout(() => {
+                document.getElementsByClassName("cc")[0].style.opacity = 1;
+                document.getElementsByClassName("cc")[1].style.opacity = 1;
+
+            }, 500);
+
+        }
+        retime();
+
+    </script>
+
+    <h1>第二組(數位式)</h1>
+    <div class="clock2">
+        <p id="time">12:00:00</p>
+        <p id="date">2020-06-17 WED</p>
+    </div>
+    <script>
+        function chgtime() {
+            nt = new Date();
+            let n_hour = nt.getHours(), n_min = nt.getMinutes(), n_sec = nt.getSeconds(), n_year = nt.getFullYear(), n_month = nt.getMonth() + 1, n_date = nt.getDate(), n_day = nt.getDay();
+            switch (n_day) {
+
+                case 1: n_day = "Mon"; break;
+
+                case 2: n_day = "Tue"; break;
+
+                case 3: n_day = "Wed"; break;
+
+                case 4: n_day = "Thu"; break;
+
+                case 5: n_day = "Fri"; break;
+
+                case 6: n_day = "Sat"; break;
+
+                case 7: n_day = "Sun"; break;
+
+            }
+
+            n_month = (n_month.length = 1) ? "0" + n_month : n_month;
+            n_date = (n_date < 10) ? "0" + n_date : n_date;
+            n_hour = (n_hour < 10) ? "0" + n_hour : n_hour;
+            n_min = (n_min < 10) ? "0" + n_min : n_min;
+            n_sec = (n_sec < 10) ? "0" + n_sec : n_sec;
+
+            document.getElementById("time").textContent = n_hour + ':' + n_min + ':' + n_sec;
+            document.getElementById("date").textContent = n_year + '-' + n_month + '-' + n_date + '-' + n_day;
+
+
+        }
+        setInterval(() => {
+            chgtime();
+
+        }, 1000);
+        chgtime();
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Cookie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .main {
+        width: 100vw;
+        height: 100vh;
+
+    }
+
+    .myFull {
+        position: fixed;
+        background: rgba(69, 255, 246, .8);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .myContent {
+        cursor: pointer;
+        position: relative;
+    }
+
+    .myContent .myClose {
+        position: absolute;
+        right: -1rem;
+        top: -1rem;
+        font-size: 2rem;
+
+        border: 1px solid black;
+        border-radius: 50% 50%;
+        line-height: 0;
+        background: #ccc;
+    }
+
+    .myClose:hover {
+        background: #eee;
+    }
+</style>
+
+<body>
+    <!-- 每日廣告 -->
+    <div class="myFull" onclick="adclose()">
+        <div class="myContent">
+
+            <img src="https://picsum.photos/600/200/?random=1">
+            <!-- <img src="https://www.nintendo.com.hk/switch/animal_crossing_new_horizons/assets/images/top/visual_logo__sp.png" width="600"> -->
+            <div class="myClose">
+
+                <span class="material-icons">
+                    close
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 主題 -->
+    <div class="main">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/88JDP54e7zY?autoplay=1&mute=1"></iframe>
+        <!-- <iframe width="560" height="600" src="https://www.youtube.com/embed/0nC0ufkEsoE?autoplay=1&mute=1"></iframe> -->
+    </div>
+
+    <script>
+        function adclose() {
+            // document.getElementsByClassName("myFull")[0].style="display:none"; //屬性可做各種設定
+            document.getElementsByClassName("myFull")[0].style.display = "none"; //屬性可做單一設定
+
+        }
+
+        function adgoto() {
+            open("https://shopee.tw/", "_blank");
+        }
+
+        document.getElementsByClassName("myFull")[0].onclick = adclose;
+        document.getElementsByClassName("myContent")[0].getElementsByTagName("img")[0].onclick = adgoto;
+
+
+        let dd = new Date();
+        lifetime = 10;
+
+        // dd.setTime(dd.getTime()+lifetime*1000); // add 10 secs save to time's obj
+
+        // document.cookie="loki=888;expires="+dd.toUTCString;
+        // document.cookie="loki=888;expires="+dd.toUTCString();
+
+        // findCookie("loki");
+
+        function findCookie(name) {
+            let ckary = document.cookie.split("; ");//分割cookie字串，存成ckary陣列物件
+            let ckget = ckary.find(function (arg) { //陣列函數find，只回傳第1個符合的值 ，其他還有filter,foreach,map,reduce,every,some等函數可處理陣列
+                // 1st arg="max=7788";
+                return (name + "=" === arg.substr(0, name.length + 1));
+            })
+            return (ckget) ? true : false;
+        }
+
+        let ckeat = findCookie("adWatch");
+        if (!ckeat) { //新訪客的處理事項
+            let end = new Date();
+            end.setHours(23), end.setMinutes(59), end.setSeconds(59);
+
+            document.cookie = "adWatch=wtf;expires=" + end.toUTCString();
+        }
+        else {//已看過廣告的訪客
+            // console.log("已看過廣告");
+
+            // 可有三種做法：直接執行關閉廣告函式，或是修改廣告顯示屬性，也可以直接移除廣告標籤
+            // adclose();
+            // document.getElementsByClassName("myFull")[0].style.display = "none";
+            document.getElementsByClassName('myFull')[0].remove(); //移除元素
+
+
+        }
+
+test=[1,2,3,4,5,6];
+test.find((e)=>{
+
+    console.log(e);
+
+    return(e==1)?true:false;
+})
+
+    </script>
+</body>
+
+</html>
