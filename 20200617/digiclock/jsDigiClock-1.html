@@ -46,6 +46,9 @@
     #s2img {
       position: absolute;
     }
+    .num img{
+      position: absolute;
+    }
 
     @keyframes blink {
       0% {
@@ -56,6 +59,7 @@
         opacity: 0;
       }
     }
+
   </style>
 </head>
 
@@ -74,13 +78,21 @@
 
   setInterval(function DigiClock() {
     let theTime = new Date();
-    let timeArray = theTime.toTimeString().split(" ")[0].split(":"); //將cookie的字串分割成一組陣列
+    let timeArray = theTime.toTimeString().split(" ")[0].split(":"); //將cookie的字串分割成一組陣列 23:59:59
     document.querySelector("#h1img").style.left = "-" + (timeArray[0].substr(0, 1) - 1) * 100 + "px";
-    document.querySelector("#h2img").style.left = "-" + (timeArray[0].substr(1, 1) - 1) * 100 + "px";
+
+    // 時、分、秒的個位數在不改圖的前提下修改顯示
+    let h=(timeArray[0].substr(1, 1)==0)?10:(timeArray[0].substr(1, 1));
+    document.querySelector("#h2img").style.left = "-" + (h - 1) * 100 + "px";
+
     document.querySelector("#m1img").style.left = "-" + (timeArray[1].substr(0, 1) - 1) * 100 + "px";
-    document.querySelector("#m2img").style.left = "-" + (timeArray[1].substr(1, 1) - 1) * 100 + "px";
+    let m=(timeArray[1].substr(1, 1)==0)?10:(timeArray[1].substr(1, 1));
+    document.querySelector("#m2img").style.left = "-" + (m - 1) * 100 + "px";
+    
     document.querySelector("#s1img").style.left = "-" + (timeArray[2].substr(0, 1) - 1) * 100 + "px";
-    document.querySelector("#s2img").style.left = "-" + (timeArray[2].substr(1, 1) - 1) * 100 + "px";
+    // console.log( (timeArray[2].substr(1, 1) - 1) * 100 );
+    let s=(timeArray[2].substr(1, 1)==0)?10:(timeArray[2].substr(1, 1));
+    document.querySelector("#s2img").style.left = "-" + (s - 1) * 100 + "px";
   }, 0);
 </script>
 

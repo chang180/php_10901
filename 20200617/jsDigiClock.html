@@ -25,32 +25,43 @@
     }
 
     .ck {
-        /* margin: 5px; */
+        display: inline-block;
+        position: relative;
+        margin: 5px;
         height: 100px;
         width: 100px;
         overflow: hidden;
-
     }
 
-    .p img{
-        /* margin: 5px; */
+    .p {
+        display: inline-block;
+        position: relative;
+        margin: 5px;
         height: 100px;
         width: 50px;
         overflow: hidden;
-        left: -950px;
 
     }
 
+    .p img {
+        position: absolute;
+        left: -1000px;
+    }
 
-    #ck1,
+    .ck img {
+        position: absolute;
+    }
+
+    /* #ck1,
     #ck2,
     #ck3,
     #ck4,
     #ck5,
-    #ck6
+    #ck6,
+    .p
         {
         position: relative;
-    }
+    } */
 </style>
 
 <body>
@@ -58,16 +69,38 @@
     <div class="container clock1">
         <div id="ck1" class="ck"><img src="digit.jpg" id="h1"></div>
         <div id="ck2" class="ck"><img src="digit.jpg" id="h2"></div>
+
         <div class="p"><img src="digit.jpg"></div>
 
         <div id="ck3" class="ck"><img src="digit.jpg" id="m1"></div>
         <div id="ck4" class="ck"><img src="digit.jpg" id="m2"></div>
+
         <div class="p"><img src="digit.jpg"></div>
+
         <div id="ck5" class="ck"><img src="digit.jpg" id="s1"></div>
         <div id="ck6" class="ck"><img src="digit.jpg" id="s2"></div>
     </div>
 
     <script>
+ setInterval(function DigiClock() {
+    let theTime = new Date();
+    let timeArray = theTime.toTimeString().split(" ")[0].split(":"); //將cookie的字串分割成一組陣列 23:59:59
+    document.querySelector("#h1").style.left = "-" + (timeArray[0].substr(0, 1) - 1) * 100 + "px";
+
+    // 時、分、秒的個位數在不改圖的前提下修改顯示
+    let h=(timeArray[0].substr(1, 1)==0)?10:(timeArray[0].substr(1, 1));
+    document.querySelector("#h2").style.left = "-" + (h - 1) * 100 + "px";
+
+    document.querySelector("#m1").style.left = "-" + (timeArray[1].substr(0, 1) - 1) * 100 + "px";
+    let m=(timeArray[1].substr(1, 1)==0)?10:(timeArray[1].substr(1, 1));
+    document.querySelector("#m2").style.left = "-" + (m - 1) * 100 + "px";
+    
+    document.querySelector("#s1").style.left = "-" + (timeArray[2].substr(0, 1) - 1) * 100 + "px";
+    // console.log( (timeArray[2].substr(1, 1) - 1) * 100 );
+    let s=(timeArray[2].substr(1, 1)==0)?10:(timeArray[2].substr(1, 1));
+    document.querySelector("#s2").style.left = "-" + (s - 1) * 100 + "px";
+  }, 1000);
+Digiclock();
 
     </script>
 
