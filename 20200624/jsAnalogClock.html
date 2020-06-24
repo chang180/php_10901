@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        margin: 0;
+        background: #ccc;
+    }
+
+    .circle {
+        /* 圓盤 */
+        width: 300px;
+        height: 300px;
+        background: white;
+        border-radius: 50%;
+        margin: 20px;
+        position: relative;
+    }
+
+    .jhur1 {
+        width: 10px;
+        /* 120px */
+        height: 25%;
+        background: #00f;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        margin-left: -5px;
+        /* animation: j_rote 43200s linear infinite; */
+    }
+
+    .jmin1 {
+        width: 10px;
+        height: 40%;
+        background: #0f0;
+        position: absolute;
+        left: 50%;
+        top: 15%;
+        margin-left: -5px;
+
+    }
+
+    .jsec1 {
+        width: 4px;
+        margin-left: -2px;
+        height: 50%;
+        background: #f00;
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        /* animation: j_sec calc(6*10s) linear infinite; */
+    }
+
+    .zmin1 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation: j_min 3600s linear infinite;
+    }
+
+    .zhur1 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation: j_hur 43200s linear infinite;
+    }
+
+    .zsec1 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation: j_sec 60s linear infinite;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 600px;
+        align-items: center;
+    }
+
+    h4 {
+        text-align: center;
+        position: relative;
+        margin-top: 50px;
+    }
+
+    .jmin2 {
+        width: 30px;
+        height: 300px;
+        background: url("m.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        animation: j_min 3600s linear infinite;
+    }
+
+    .jhur2 {
+        width: 30px;
+        height: 300px;
+        background: url("h.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        animation: j_hur 43200s linear infinite;
+    }
+
+    .jsec2 {
+        width: 30px;
+        height: 300px;
+        background: url("s.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        animation: j_sec 60s linear infinite;
+    }
+
+    /* 第三個時鐘 */
+    .rmin3 {
+
+        animation: j_min 3600s linear infinite;
+        transform-origin: 50% 87.5%;
+    }
+
+    .rhur3 {
+        animation: j_hur 43200s linear infinite;
+        transform-origin: 50% 80%;
+
+    }
+
+    .rsec3 {
+        animation: j_sec 60s linear infinite;
+        transform-origin: 50% 90%;
+
+    }
+
+    /* 第四個時鐘 */
+    .rmin4 {
+
+        transform-origin: 50% 87.5%;
+    }
+
+    .rhur4 {
+        transform-origin: 50% 80%;
+
+    }
+
+    .rsec4 {
+        transform-origin: 50% 90%;
+
+    }
+</style>
+
+<script>
+    // 假設是23:59:59，如何轉換出H,M,S之角度
+    // S:59 -> 360度/60秒 => 6deg/sec  => 59*6=354
+    // M:59 -> 360度/60分 => 6deg/min  => 59*6=354 
+    //      -> 360度/3600秒 => .1 deg/sec => 3599*.1=359.9
+    // H:23 -> 360度/12時 => 30deg/hour => 23*30= 690-360 = 330deg
+    // 23:59     -> 360度/720分 => .5deg/min => ((23*60)+59)*.5= 359.5 (midium spec)
+    // 23:59:59 ->360度/43200秒 => .00833deg/sec =>(11*60*60+59*60+59)*.00833=43199*.00833=359.70367 (high spec)
+
+    // var radians = 90 * (Math.PI/180); 想看一下弧度怎麼表示，無特別意義
+    // console.log(radians);
+    let time;
+    let pos_s;
+    let pos_m;
+    let pos_h;
+
+    let s; //轉成角度
+    let m; //也轉成每秒幾度
+    let h; //小時用中標，每分鐘幾度
+
+    setTime = () => {
+        time = new Date();
+        pos_s = time.getSeconds();
+        pos_m = time.getMinutes();
+        pos_h = time.getHours();
+        s = pos_s * 6; //轉成角度
+        m = (pos_m * 60 + pos_s) * .1 //也轉成每秒幾度
+        h = (pos_h % 12 * 60 + pos_m) * .5 //小時用中標，每分鐘幾度
+        // console.log(s, h, m);
+        return { s, m, h }
+    }
+    setTime();
+
+
+    document.write(`
+<style>
+@keyframes j_min {
+        from {
+            transform: rotate(${m}deg);
+        }
+
+        to {
+            transform: rotate(${m + 360}deg);
+        }
+    }
+
+    @keyframes j_hur {
+        from {
+            transform: rotate(${h}deg);
+        }
+
+        to {
+            transform: rotate(${h + 360}deg);
+        }
+    }
+
+    @keyframes j_sec {
+        from {
+            transform: rotate(${s}deg);
+        }
+
+        to {
+            transform: rotate(${s + 360}deg);
+        }
+    }
+    </style>
+`);
+    window.onload = clock = (m, h, s) => {
+        // 初始角度
+        document.getElementsByClassName("rmin4")[0].style.transform = `rotate(${m}deg)`;
+        document.getElementsByClassName("rhur4")[0].style.transform = `rotate(${h}deg)`;
+        document.getElementsByClassName("rsec4")[0].style.transform = `rotate(${s}deg)`;
+    }
+
+    setInterval(() => {
+        // time = new Date();
+        // pos_s = time.getSeconds();
+        // pos_m = time.getMinutes();
+        // pos_h = time.getHours();
+        // s = pos_s * 6; //轉成角度
+        // m = (pos_m * 60 + pos_s) * .1 //也轉成每秒幾度
+        // h = (pos_h % 12 * 60 + pos_m) * .5 //小時用中標，每分鐘幾度
+        setTime();
+
+        clock(m, h, s);
+        // location.reload(); 這樣會造成瀏覽器一直重新跑一遍，不好
+    }, 1000);
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="circle">
+            <div class="zmin1">
+                <div class="jmin1"></div>
+            </div>
+            <div class="zhur1">
+                <div class="jhur1"></div>
+            </div>
+            <div class="zsec1">
+                <div class="jsec1"></div>
+            </div>
+            <h4>雙Div+CSS Animation</h4>
+        </div>
+        <div class="circle">
+            <div class="jmin2"></div>
+            <div class="jhur2"></div>
+            <div class="jsec2"></div>
+            <h4>PNG+CSS Animation</h4>
+        </div>
+        <div class="circle">
+            <div class="jmin1 rmin3"></div>
+            <div class="jhur1 rhur3"></div>
+            <div class="jsec1 rsec3"></div>
+            <h4>CSS's Offset + Animation</h4>
+        </div>
+        <div class="circle">
+            <h5>CSS's Offset + JS setInterval</h5>
+            <div class="jmin1 rmin4"></div>
+            <div class="jhur1 rhur4"></div>
+            <div class="jsec1 rsec4"></div>
+
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+
+</body>
+
+</html>
