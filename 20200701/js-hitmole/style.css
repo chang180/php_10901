@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+.cell{
+    margin: -4px;
+}
+.row{
+    margin:-4px;
+}
+.content{
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: center;
+}
+.control{
+    max-width: 350px;
+}
+
+.cell{
+    background:yellow;
+    border:5px solid #666;
+}
+.msg{
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+}
+span,button{
+    flex-basis:30%;
+}
+
