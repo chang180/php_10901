@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Class</title>
+    <script src="jquery-3.5.1.js"></script>
+    <style>
+        #one,
+        #two {
+            color: red;
+        }
+        h1{
+            color:red;
+        }
+    </style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="page">
+        <h1 id="header">My jQuery Demo Page</h1>
+        <img width="200" height="150" src="https://picsum.photos/150/300/?random=1">
+        <h2>我的待辦事項</h2>
+        <div id="list">
+
+            <ul>
+                <li id="one" class="hot"><b>買</b>晚餐</li>
+                <li id="two" class="hot">練程式</li>
+                <li id="three" class="hot">打電動</li>
+                <li id="four">洗澡刷牙睡覺</li>
+            </ul>
+            <ul>
+                HI
+            </ul>
+        </div>
+    </div>
+
+<input type="button" value="不要按" onclick="aaa()" id="btn1"><br>
+<input type="button" value="無文" id="btn2"><br>
+<input type="text" name="" value="頭文字豬"><br>
+<input type="text" name="" value="文字串"><br>
+<textarea name="" id="" cols="30" rows="10">內容</textarea><br>
+<select name="" id="">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+    <option value="3">3</option>
+</select>
+
+<input type="radio" name="" value="boy" checked>boy
+<input type="radio" name="" value="girl">girl
+<form action="">
+    <input type="submit" value="" id="btn3">
+</form>
+
+<script>
+
+    
+    window.onload=()=>{
+        // console.log(document.getElementById("two").innerHTML);
+        // alert(123);
+    }
+    
+    // $(document).ready(function(){
+    //     console.log(document.getElementById("two").innerHTML);
+        
+    // })
+    
+    // $(window).load(function(){
+    //     console.log(document.getElementById("two").innerHTML);
+    // })
+
+
+    function aaa(){
+        alert(123);
+    }
+
+    document.getElementById("btn1").onclick=function (){
+        alert("JS");
+    };
+
+// $("#btn2").on("mousedown",function(){
+//     alert("JQ");
+// });
+
+$("#btn2").mousedown(function(){
+    alert("JQNO2");
+});
+$("#btn2").mouseleave(function(){
+    alert("JQNO3");
+});
+
+</script>
+</body>
+
+</html>

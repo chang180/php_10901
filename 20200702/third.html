@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ Animation</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script src="jquery.color-2.1.2.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .red {
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+
+        .blue {
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color">
+        <div class="red"></div>
+        <div class="blue"></div>
+    </div>
+
+    <button id="touch">按我切紅色</button>
+    <button id="touch1">按我切藍色</button>
+    <button id="stop">Full Stop</button>
+
+    <script>
+        // $("#touch").mousedown(() => {
+        //     $(".red").toggle(5000, () => { // callback
+        //         console.log("done");
+        //     });
+        // });
+        $("#touch").mousedown(() => {
+            $(".red").delay(5000).slideToggle(5000, () => { // callback
+                console.log("slide done");
+            });
+        });
+
+
+        // $("#touch1").mousedown(() => {
+            // $(".blue").fadeToggle(500,function(){
+            //     console.log("fade done");
+            // });
+        //     $(".blue").fadeTo(5000, 0);
+        // });
+        // $("#touch1").mouseup(() => {
+        //     $(".blue").fadeTo(5000, 1);
+        // });
+        // $("#touch1").mouseout(() => {
+        //     $(".blue").fadeTo(5000, 1);
+        // });
+
+        $("#touch1").mousedown(()=>{
+            $(".blue").animate({
+                width:"100",
+                opacity:".5",
+                backgroundColor:"green", //JQ animate沒有背景色轉換，要另裝ui
+            },500);
+        });
+
+        $("#touch1").mouseup(()=>{
+            $(".blue").animate({
+                width:"300",
+                opacity:"1",
+                backgroundColor:"blue", //JQ animate沒有背景色轉換，要另裝ui
+            },500);
+        });
+
+        $("#stop").mousedown(() => {
+            $(".blue").stop();
+        })
+    </script>
+
+</body>
+
+</html>
