@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <table border="1" width="100%">
+        <tr>
+            <td width="40%">標題</td>
+            <td width="60%">內容</td>
+        </tr>
+    </table>
+
+
+    <div id="alt"
+        style="position: absolute; 
+        width: 40vw;
+        min-height: 100px; 
+        word-break:break-all; 
+        text-align:justify;  
+        background-color: rgb(255, 255, 204); 
+        top: 50px; 
+        left: 400px; 
+        z-index: 99; 
+        display: none; 
+        padding: 5px; 
+        border: 3px double rgb(255, 153, 0); 
+        background-position: initial initial; 
+        background-repeat: initial initial;">
+    </div>
+    <script>
+        $.getJSON("data.json", function (re) {
+            todo(re.q2t12);
+        })
+
+        function todo(myjsn) {
+            // DOM 寫入
+            // console.log(myjsn);
+            for (const key in myjsn) {
+                $("table").append(`
+        <tr>
+        <td>${key}</td>
+        <td class="sswww">
+            <span stype="pointer-events:none;">${myjsn[key].substr(0, 20)}...</span>
+            <span class="all" style="display:none";padding:5px>${myjsn[key]}</span></td>
+        </tr>
+        `);
+            }
+        
+
+        //event toggle
+        $(".sswww").hover(function(){
+            $("#alt").html($(this).children(".all").html()).css({
+// "top":"100px",
+// "left":"100px"
+"top":$(this).offset().top+30,
+"left":$(this).offset().left+20
+            }).show();
+        });
+
+        $(".sswww").mouseout(()=>{
+            $("#alt").hide();
+        });
+    }
+
+        // $(".sswww").hover(
+        //     function () {
+        //         $("#alt").html("" + $(this).children(".all").html() + "").css({ "top": $(this).offset().top - 50 })
+        //         $("#alt").show()
+        //     }
+        // )
+        // $(".sswww").mouseout(
+        //     function () {
+        //         $("#alt").hide()
+        //     }
+        // )
+    </script>
+</body>
+
+</html>

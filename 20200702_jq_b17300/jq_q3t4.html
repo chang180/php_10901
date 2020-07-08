@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick-theme.css">
+    <script src="jquery-3.5.1.js"></script>
+    <script src="./slick-1.8.1/slick/slick.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            background: #333;
+            color: #fff;
+            margin: 0;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .control img {
+            width: 90px;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+
+        .control {
+            width: 400px;
+            margin: 10px 30px;
+        }
+
+        #box {
+            flex: 0 0 420px;
+            overflow: hidden;
+        }
+
+        #ani_zone {
+            transform: scale(1);
+            transition: transform .5s;
+            position: relative;
+        }
+
+        #ani_zone.scale {
+            /* transition: .5s; */
+            transform: scale(0);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1>預告片介紹</h1>
+        <div id="box">
+            <div id="ani_zone">
+                <img src="img/03A03.jpg">
+                <p>片名</p>
+            </div>
+        </div>
+        <div class="control"></div>
+    </div>
+
+    <script>
+        let effect = 0, myimg = new Object(), pause = null; //setting 全域變數
+
+        $.getJSON("data.json", function (result) {
+            // console.log(result);
+            effect = result.q3t4.effect; //number
+            myimg = result.q3t4.img; //object
+            // DOM Write
+
+            for (const key in myimg) {
+                $(".control").append(
+                    `<img src="${myimg[key]}" alt="${key}" class="min-img">`
+                );
+            }
+
+            //初始化主圖文
+            $("#ani_zone").find("img").attr("src", Object.values(myimg)[0]);
+            $("#ani_zone").find("p").text(Object.keys(myimg)[0]);
+
+
+            // slick優化
+            $('.control').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 3,
+                dots: true
+            });
+
+            //click event
+            $(".min-img").click(function () {
+                let key = $(this).attr("alt");
+
+                swap(key);
+                clearInterval(pause);
+                autoplay(key)
+                // console.log(key);
+            })
+
+            //初始自動播放
+            autoplay(Object.keys(myimg)[0]);
+        });
+
+        // 主圖文替換，who為new display
+        function swap(who) {
+            switch (effect) {
+                case 1:  //fadeInOut
+                    // console.log(1);
+                    $("#ani_zone").fadeToggle(function () {
+                        $(this).find("img").attr("src", myimg[who]);
+                        $(this).find("p").text(who);
+                        $(this).fadeToggle();
+                    });
+                    break;
+                case 2: // 
+                    // console.log(2); //slide no answer
+                    $("#ani_zone").slideToggle(function () {
+                        $(this).find("img").attr("src", myimg[who]);
+                        $(this).find("p").text(who);
+                        $(this).slideToggle();
+                    });
+                    break;
+                case 3:  //縮放
+                    // console.log(3);
+                    $("#ani_zone").toggleClass("scale");
+                    setTimeout(() => {
+                        $("#ani_zone").find("img").attr("src", myimg[who]);
+                        $("#ani_zone").find("p").text(who);
+                        $("#ani_zone").toggleClass("scale");
+                    }, 500);
+
+                    break;
+                case 4: //move left not working properly now
+                    // console.log(4);
+                    $("#ani_zone").animate({
+                        left: "-150%"
+                    }, function () {
+                        $(this).find("img").attr("src", myimg[who]);
+                        $(this).find("p").text(who);
+                        $(this).css("left", "150%").animate({
+                            left: "0"
+                        });
+                    });
+                    break;
+            }
+        }
+
+        //autoplay 提供一個目前圖片begin(片名), 查詢該位置處(數字)，我們才透過+1去尋找下一個new資料
+        function autoplay(begin) {
+            //將片名 轉換成 第幾張(array)圖之數字
+            let nowNum = Object.keys(myimg).indexOf(begin); // is num 代表在資料內的第幾筆
+            pause = setInterval(() => {
+                // nowNum++; //n cycle ++
+                nowNum = (nowNum + 1) % Object.keys(myimg).length;
+
+                swap(Object.keys(myimg)[nowNum]); //轉成片名之後傳給swap()，就從這一片重新開始播放
+            }, 2000);
+        }
+
+
+    </script>
+</body>
+
+</html>
