@@ -37,5 +37,23 @@
             "03A08":"img/03A08.jpg",
             "03A09":"img/03A09.jpg"
         }
+    },
+
+    "q3t5":[
+        {"img":"img/03A01.jpg","text":"03A01","odr":1},
+        {"img":"img/03A02.jpg","text":"03A02","odr":2},
+        {"img":"img/03A03.jpg","text":"03A03","odr":3},
+        {"img":"img/03A04.jpg","text":"03A04","odr":4},
+        {"img":"img/03A05.jpg","text":"03A05","odr":5},
+        {"img":"img/03A06.jpg","text":"03A06","odr":6}
+    ],
+    "q3t8":{
+        "movie":{
+            "title":"獅子王",
+            "date":"2020-07-15",
+            "time":"14:00-16:00"
+        },
+        "sell":[1,5,7,10,11,15]
     }
+
 }

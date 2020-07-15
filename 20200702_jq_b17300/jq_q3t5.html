@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick-theme.css">
+    <script src="jquery-3.5.1.js"></script>
+    <script src="./slick-1.8.1/slick/slick.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" style="text-align: center;">
+        <h3>預告片清單</h3>
+        <table border="1" style="margin:0 auto;">
+            <thead>
+                <tr>
+                    <td>預告片海報</td>
+                    <td>預告片片名</td>
+                    <td>播放順序</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td><img src="img/03A01.jpg" width="100"></td>
+                    <td>03A01</td>
+                    <td>
+                        <input type="button" value="上移">
+                        <input type="button" value="下移">
+                    </td>
+                    <td>
+                        <input type="checkbox">顯示
+                        <input type="checkbox">刪除
+                        <input type="hidden" name="odr[03A0a1]" value="1">
+                    </td>
+                </tr> -->
+            </tbody>
+
+        </table>
+        <div style="margin:10px 0"><input type="submit" value="編輯"></div>
+        <div style="margin:10px 0"><input type="submit" value="test"></div>
+    </form>
+
+    <script>
+        $.getJSON("data.json", function (result) {
+            for (const item of result.q3t5) {
+                // console.log(item);
+                $("tbody").append(`
+                <tr>
+                    <td><img src="${item.img}" width="100"></td>
+                    <td>${item.text}</td>
+                    <td>
+                        <input class="up" type="button" value="上移">
+                        <input class="down" type="button" value="下移">
+                        <input type="hidden" name="odr[${item.text}]" value="${item.odr}">
+                    </td>
+                    <td>
+                        <input type="checkbox">顯示
+                        <input type="checkbox">刪除
+                    </td>
+                </tr>
+                `);
+            };
+
+            $("input:button").click(function () {
+
+                let nodeSelf = $(this).parents("tr");
+                // console.log(nodeSelf);
+                let nodeTarget = null;
+
+                switch (this.className) {
+                    case "up":
+                        nodeTarget = $(this).parents("tr").prev();
+                        // console.log(nodeTarget);
+                        if (nodeTarget.length == 1) {
+
+
+                            // valSelf = nodeSelf.find("input:hidden").val();
+                            // valSelf--;
+                            // nodeSelf.find("input:hidden").val(valSelf);
+// console.log(nodeSelf.find("input:hidden").val())
+                            nodeSelf.find("input:hidden").val((idx, value) => { return --value });
+
+
+
+                            // valTar = nodeTarget.find("input:hidden").val();
+                            // valTar++;
+                            // nodeTarget.find("input:hidden").val(valTar);
+
+                            nodeTarget.find("input:hidden").val((idx, value) => { return ++value });
+
+
+                            nodeSelf.insertBefore(nodeTarget);
+                        }
+                        break;
+                    case "down":
+                        nodeTarget = $(this).parents("tr").next();
+                        if (nodeTarget.length == 1) {
+
+                            nodeSelf.find("input:hidden").val((idx, value) => { return ++value });
+
+                            nodeTarget.find("input:hidden").val((idx, value) => { return --value });
+
+                            nodeSelf.insertAfter(nodeTarget);
+                        }
+
+
+                        break;
+
+                }
+
+            });
+
+        })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
