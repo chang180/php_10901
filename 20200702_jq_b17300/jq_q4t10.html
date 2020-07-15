@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick-theme.css">
+    <script src="jquery-3.5.1.js"></script>
+    <script src="./slick-1.8.1/slick/slick.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" onsubmit="return check(this)">
+        帳號：<input type="text" name="acc"><br>
+        密碼：<input type="text" name="pwd"><br>
+        驗證碼：<span class="qus">5+5</span>= <input type="number" name="ans"><br>
+
+        <input type="submit" value="登入">
+
+    </form>
+
+<script>
+    let a=Math.floor(Math.random()*10)+10;
+    let b=Math.floor(Math.random()*10)+10;
+    $(".qus").text(`${a}+${b}`)
+
+    function check(who){
+        let ans=$(who).children("input[name=ans]").val();
+        if(a+b!=ans){
+            alert("驗證錯誤");
+            return false;
+        }else return true;
+    }
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.1.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>編號</td>
+                <td>動物名</td>
+                <td>重量</td>
+                <td>簡介</td>
+                <td>更新日期</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <hr>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" style="text-align:center;padding:10px;">
+                    <button>新增</button>
+                    <button onclick="loading()">加載10筆</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        let start = 0;
+        function loading() { //select
+            $.post("api.php?do=select", { start }, function (result) {
+                //DOM 生成
+                if (result != 'fail') {
+                    $("tbody").append(result); //DOM生成
+                    $(".mdy").click(chginput); //event 指定 DOM的事件
+                    start += 10;
+                } else {
+                    alert("已無資料傾倒");
+                }
+
+            })
+        }
+        loading();
+
+        //  update
+        function chginput() {
+            let item = $(this).parent().siblings(); //keep 5 data
+            item.parent().html(`
+<td><input type="hidden" value="${item.eq(0).text()}" name="id"></td>
+<td><input name="name" value="${item.eq(1).text()}"></td>
+            <td><input name="weight" value="${item.eq(2).text()}"></td>
+            <td><input name="info" value="${item.eq(3).text()}"></td>
+            <td>${item.eq(4).text()}</td>
+            <td>
+<button onclick="chgtxt">儲存</button>
+                </td>
+`)
+
+        }
+
+//此時DOM尚不存在
+// $(".mdy").click(chginput);
+
+    </script>
+</body>
+
+</html>
