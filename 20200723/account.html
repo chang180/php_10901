@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.js"></script>
+
+</head>
+
+<body>
+    <h3>註冊帳號</h3>
+    <form action="" onsubmit="return checkflag()">
+        <label for="name">姓名：<input type="text" name="name" id="name"></label><br>
+        <label for="acc">帳號：<input type="text" name="acc" id="acc"><input type="button" value="檢測帳號"
+                onclick="check()"></label><br>
+        <label for="pwd">密碼：<input type="password" name="pwd" id="pwd"></label><br>
+        <input type="submit" value="註冊"><input type="reset" value="清除">
+    </form>
+
+
+</body>
+
+</html>
+
+<script>
+    let flag = 0;
+    function check() {
+        let acc = $("input[name=acc]").val();
+        $.post("acc.php?do=check", { acc }, (re) => {
+            alert(re);
+            if (re == '可使用此帳號') {
+                flag = 1;
+                $("#acc").attr("readonly",true);
+            }
+        })
+    }
+
+    function checkflag() {
+        // check();
+        if (!flag) {
+            alert("請先驗證帳號");
+            location.reload();
+            return false;
+        }
+        // else return true;
+    }
+</script>

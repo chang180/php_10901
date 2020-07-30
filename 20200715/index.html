@@ -6,9 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery-3.5.1.js"></script>
     <title>Document</title>
+    <style>
+        .insertZone {
+            position: fixed;
+            background: #333A;
+            color: #eee;
+            font-weight: bolder;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: 50%;
+
+        }
+    </style>
 </head>
 
 <body>
+    <div class="insertZone" style="display:none;">
+        <!-- 沒有要透過form submit進行網頁轉移 -->
+
+    </div>
     <table width="100%">
         <thead>
             <tr>
@@ -31,7 +53,7 @@
         <tfoot>
             <tr>
                 <td colspan="6" style="text-align:center;padding:10px;">
-                    <button>新增</button>
+                    <button onclick="active()">新增</button>
                     <button onclick="loading()">加載10筆</button>
                 </td>
             </tr>
@@ -59,17 +81,102 @@
         function chginput() {
             let item = $(this).parent().siblings(); //keep 5 data
             item.parent().html(`
-<td><input type="hidden" value="${item.eq(0).text()}" name="id"></td>
-<td><input name="name" value="${item.eq(1).text()}"></td>
-            <td><input name="weight" value="${item.eq(2).text()}"></td>
-            <td><input name="info" value="${item.eq(3).text()}"></td>
-            <td>${item.eq(4).text()}</td>
-            <td>
-<button onclick="chgtxt">儲存</button>
-                </td>
-`)
+            <td><input type="hidden" value="${item.eq(0).text()}" name="id"></td>
+            <td><input name="name" value="${item.eq(1).text()}"></td>
+                        <td><input name="weight" value="${item.eq(2).text()}"></td>
+                        <td><input name="info" value="${item.eq(3).text()}"></td>
+                        <td>${item.eq(4).text()}</td>
+                        <td>
+            <button onclick="chgtxt(this)">儲存</button>
+                            </td>
+            `);
 
         }
+
+        // let item=null;
+        function chgtxt(who) {
+            // console.log(who );
+            // item=$(who).parent.siblings(); // keep 5 data
+            let data = $(who).parents("tr").find("input").serialize();
+            // console.log(data,typeof(item));
+            test = {  //json data
+                id: "1",
+                name: "aaa",
+                weight: "bbb",
+                info: "ccc"
+            }
+
+            // $.post("api.php?do=update",test,function(result){
+            $.post("api.php?do=update", data, function (result) {
+                // console.log(result); //是後端告訴前端系統更新之時間文字
+                let item = $(who).parent().siblings(); // keep 5 data
+                let
+                    id = item.eq(0).text(),
+                    name = item.eq(1).children().val(),
+                    weight = item.eq(2).children().val(),
+                    info = item.eq(3).children().val();
+
+
+                // console.log(id, name, wieght, info); 可用此做debug
+                item.parent().html(`
+<td>${id}}</td>
+<td><${name}</td>
+            <td>${weight}</td>
+            <td>${info}</td>
+            <td>${result}</td>
+            <td>
+              <button class="mdy">修改</button>
+              <button onclick="del(this)">刪除</button>
+            </td>
+`);
+
+                $(".mdy").click(chginput); //因為dom又變新的出來，瀏覽器不認識，所以又要整體.mdy再宣告click事件
+
+            });
+        }
+
+        function del(e) {
+            let id = $(e).parent().siblings().eq(0).text();
+
+            $.post("api.php?do=delete", { id }, function (re) {
+                // if(re=="deleted") console.log("已刪除");
+                if (re) $(e).parent().parent().remove();
+            })
+        }
+
+        function active() {
+
+            $(".insertZone").html(`
+            <form>
+                <h1>新增動物資料</h1>
+                <hr>
+                <p>動物：<input type="text" name="name"></p>
+                <p>重量：<input type="text" name="weight"></p>
+                <p>簡介：<input type="text" name="info"></p>
+                <hr><p>
+                    <button type="button" onclick="sendAdd(this)">提交</button>
+                    <button type="button" onclick="closeZone()">取消</button>
+                    </p>
+                    </form>
+                    `);
+            $(".insertZone").fadeIn();
+        }
+
+        function closeZone() {
+            $(".insertZone").fadeOut();
+        }
+
+        function sendAdd(who) {
+            let data=$(who).parents("form").find("input").serialize();
+            $.post("api.php?do=insert",data,function(re){
+                $("tbody").empty();
+                start=0;
+                loading();
+                closeZone();
+
+            });
+        }
+
 
 //此時DOM尚不存在
 // $(".mdy").click(chginput);

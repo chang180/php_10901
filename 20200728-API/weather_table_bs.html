@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央氣象局開放資料平台</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
+
+    <script src="jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+</head>
+
+<body>
+    <h1 class="text-center">36小時 天氣速報</h1>
+        <table id="myTable" class="table table-striped text-nowrap">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">編號</th>
+                    <th scope="col">城市</th>
+                    <th scope="col">上午</th>
+                    <th scope="col">下午</th>
+                    <th scope="col">今晚明晨</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+
+
+    <script>
+        let data;
+        $.getJSON("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-3EEDFECA-EEDA-4627-91CF-7E50AA5D02C2&downloadType=WEB&format=JSON")
+            .done(e => {
+                data = e.cwbopendata.dataset.location;
+
+                for (let i = 0; i < data.length; i++) {
+                    let row = data[i];
+                    print += `
+<tr>
+                <th scope="row">${i + 1}</th>
+                <td>${data[i].locationName}</td>
+                
+                <td> <img src="img/day/${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg" style="float:left">
+<p>${data[i].weatherElement[0].time[0].parameter.parameterName}</p>
+                    溫度${data[i].weatherElement[2].time[0].parameter.parameterName}~${data[i].weatherElement[1].time[0].parameter.parameterName}℃</td>
+                
+                <td> <img src="img/day/${data[i].weatherElement[0].time[1].parameter.parameterValue}.svg" style="float:left">
+<p>${data[i].weatherElement[0].time[1].parameter.parameterName}</p>
+                    溫度${data[i].weatherElement[2].time[1].parameter.parameterName}~${data[i].weatherElement[1].time[1].parameter.parameterName}℃</td>
+                
+                <td> <img src="img/day/${data[i].weatherElement[0].time[2].parameter.parameterValue}.svg" style="float:left">
+<p>${data[i].weatherElement[0].time[2].parameter.parameterName}</p>
+                    溫度${data[i].weatherElement[2].time[2].parameter.parameterName}~${data[i].weatherElement[1].time[0].parameter.parameterName}℃</td>
+            </tr>
+            `;
+                }
+                $("tbody").html(print);
+
+                let date1 = new Date(data[0].weatherElement[0].time[0].startTime);
+                let date2 = new Date(data[0].weatherElement[0].time[1].startTime);
+                let date3 = new Date(data[0].weatherElement[0].time[2].startTime);
+
+                let hourTxt = new Array();
+                hourTxt[0] = "凌晨";
+                hourTxt[6] = "白天";
+                hourTxt[12] = "下午";
+                hourTxt[18] = "晚上";
+                $("thead").find("th").eq(2).text(`${date1.getFullYear()}-${date1.getMonth() + 1}-${date1.getDate()} | ${hourTxt[date1.getHours()]}`);
+                $("thead").find("th").eq(3).text(`${date2.getFullYear()}-${date2.getMonth() + 1}-${date2.getDate()} | ${hourTxt[date2.getHours()]}`);
+                $("thead").find("th").eq(4).text(`${date3.getFullYear()}-${date3.getMonth() + 1}-${date3.getDate()} | ${hourTxt[date3.getHours()]}`);
+
+                $('#myTable').DataTable();
+            });
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
